@@ -14,7 +14,7 @@ export default function SocialProfiles() {
   const { is2Xl } = useGetWindowSize();
 
   return (
-    <div className="mt-6">
+    <div className="w-full mt-6 lg:w-min lg:mt-0 xl:w-[230px] 2xl:w-[250px]">
       <Typography className="text-[18px] 2xl:text-xl mb-[10px]" variant={typographyVariants.subtitle} color={typographyColors.grey15}>
         Social Profiles
       </Typography>

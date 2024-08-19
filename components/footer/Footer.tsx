@@ -1,14 +1,15 @@
 import Link from "next/link";
 
-import { LocationIcon, LogoIcon, MailIcon, PhoneIcon } from "@/icons";
-import Typography, { typographyColors, typographyVariants } from "../Typography";
+import { LocationIcon, MailIcon, PhoneIcon } from "@/icons";
+import Logo from "./Logo";
 import SocialProfiles from "./SocialProfiles";
+import Typography, { typographyColors, typographyVariants } from "../Typography";
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col bg-absolute-white px-5 pt-[50px] pb-6">
+    <footer className="flex flex-col bg-absolute-white px-5 pt-[50px] pb-6 lg:px-20 lg:pt-[60px] lg:pb-5 lg:flex-row lg:flex-wrap lg:justify-between 2xl:pt-[100px] 2xl:pb-[30px] 2xl:px-[162px]">
       <div className="flex flex-col gap-[30px]">
-        <LogoIcon size={44} />
+        <Logo />
         <div className="flex flex-col gap-3">
           <a className="flex items-center gap-[6px]" href="mailto:hello@skillbridge.com">
             <MailIcon />
@@ -30,8 +31,8 @@ export default function Footer() {
           </a>
         </div>
       </div>
-      <div className="flex gap-[30px] mt-6">
-        <div className="flex flex-col gap-1">
+      <div className="flex flex-wrap gap-x-[30px] mt-6 lg:mt-0">
+        <div className="flex flex-col gap-1 xl:w-[230px] 2xl:w-[250px]">
           <Link className="mb-[6px]" href="/">
             <Typography className="text-[18px] 2xl:text-xl" variant={typographyVariants.subtitle} color={typographyColors.grey15}>
               Home
@@ -58,7 +59,7 @@ export default function Footer() {
             </Typography>
           </Link>
         </div>
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 xl:w-[230px] 2xl:w-[250px]">
           <Link className="mb-[6px]" href="/about-us">
             <Typography className="text-[18px] 2xl:text-xl" variant={typographyVariants.subtitle} color={typographyColors.grey15}>
               About Us
@@ -80,10 +81,10 @@ export default function Footer() {
             </Typography>
           </Link>
         </div>
+        <SocialProfiles />
       </div>
-      <SocialProfiles />
-      <hr className="border-white-95 my-5" />
-      <Typography className="text-center" variant={typographyVariants.body} color={typographyColors.grey40}>
+      <hr className="border-white-95 my-5 w-full lg:my-[50px]" />
+      <Typography className="text-center w-full" variant={typographyVariants.body} color={typographyColors.grey40}>
         &copy; 2023 Skillbridge. All rights reserved.
       </Typography>
     </footer>

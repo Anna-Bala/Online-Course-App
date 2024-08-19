@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`bg-white-97 lg:pt-5 2xl:px-[30px] ${be_vietnam_pro.className}`}>
+      <body className={`bg-white-97 lg:pt-5 ${be_vietnam_pro.className}`}>
         <>
           <Navigation />
           {children}
