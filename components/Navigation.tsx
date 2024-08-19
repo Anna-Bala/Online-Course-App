@@ -4,9 +4,9 @@ import { usePathname } from "next/navigation";
 import classNames from "classnames";
 import Link from "next/link";
 
-import ArrowRight from "@/public/arrow-right.svg";
+import ArrowRightIcon from "@/icons/ArrowRight";
 import LinkButton, { linkButtonVariants } from "./LinkButton";
-import Logo from "@/public/logo.svg";
+import LogoIcon from "@/icons/Logo";
 
 const contentNavigationItems = [
   {
@@ -49,18 +49,18 @@ export default function Navigation() {
   const pathname = usePathname();
 
   return (
-    <header className="flex flex-col items-center justify-between">
-      <div className="text-absolute-white bg-orange-50 w-full text-center py-[14px] rounded-md 2xl:rounded-lg mb-4 2xl:mb-5">
-        Free Courses 🌟 Sale Ends Soon,{" "}
-        <Link className="mr-[46px] hover:underline" href="/pricing">
+    <header className="flex flex-col items-center justify-between lg:px-5">
+      <div className="flex items-center justify-center text-absolute-white bg-orange-50 w-full text-center py-[14px] rounded-md 2xl:rounded-lg mb-4 2xl:mb-5">
+        <span>Free Courses 🌟 Sale Ends Soon,&nbsp;</span>
+        <Link className="flex items-center mr-[46px] hover:underline" href="/pricing">
           <span>Get It Now</span>
-          <ArrowRight className="inline-block lg:ml-5" />
+          <ArrowRightIcon size={20} />
         </Link>
       </div>
       <nav className="w-full">
         <ul className="flex items-center gap-1 lg:px-[60px] 2xl:px-[132px]">
           <Link className="mr-[46px]" href="/">
-            <Logo />
+            <LogoIcon size={40} />
           </Link>
           {contentNavigationItems.map(({ href, name }) => (
             <li key={href}>

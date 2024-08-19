@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Be_Vietnam_Pro } from "next/font/google";
 
+import Footer from "@/components/footer/Footer";
 import Navigation from "@/components/Navigation";
 import "./globals.css";
 
@@ -18,10 +19,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`bg-white-97 lg:px-5 lg:pt-5 2xl:px-[30px] ${be_vietnam_pro.className}`}>
+      <body className={`bg-white-97 lg:pt-5 2xl:px-[30px] ${be_vietnam_pro.className}`}>
         <>
           <Navigation />
           {children}
+          <Footer />
         </>
       </body>
     </html>
