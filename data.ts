@@ -562,6 +562,7 @@ export const courses = [
 
 export const pricingPlans = [
   {
+    id: "s1j2k3",
     isFree: true,
     monthyPrice: 0,
     yearlyPrice: 0,
@@ -569,6 +570,7 @@ export const pricingPlans = [
     unavailableFeatures: ["Access to exclusive Pro Plan community forums.", "Early access to new courses and updates."],
   },
   {
+    id: "c3r4t5",
     isFree: false,
     monthyPrice: 79,
     yearlyPrice: 850,

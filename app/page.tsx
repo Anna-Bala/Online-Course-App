@@ -4,11 +4,12 @@ import { benefits, courses } from "@/data";
 import { BoltIcon, LinesIcon } from "@/icons";
 import Benefit from "@/components/Benefit";
 import Course from "@/components/Course";
+import FAQ from "@/components/faq/FAQ";
 import HomePageSection from "@/components/HomePageSection";
 import LinkButton, { linkButtonVariants } from "@/components/LinkButton";
 import placeholderImg from "@/public/placeholder.png";
-import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
 import PricingPlans from "@/components/pricingPlans/PricingPlans";
+import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
 
 export default function Home() {
   return (
@@ -71,6 +72,8 @@ export default function Home() {
       >
         <PricingPlans />
       </HomePageSection>
+
+      <FAQ />
     </main>
   );
 }

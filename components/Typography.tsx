@@ -94,8 +94,8 @@ const variantClassNames = {
   subtitle: "text-xl lg:text-xl 2xl:text-2xl font-semibold",
 };
 
-export default function Typography({ children, color, className = "", htmlTag: CustomHTMLTag = "p", variant = "body" }: Props) {
-  const HTMLTag = CustomHTMLTag || variantHTMLTag[variant];
+export default function Typography({ children, color, className = "", htmlTag: CustomHTMLTag, variant = "body" }: Props) {
+  const HTMLTag = CustomHTMLTag || (variantHTMLTag[variant] as keyof JSX.IntrinsicElements);
 
   return <HTMLTag className={classNames(`${variantClassNames[variant]} ${colorClassNames[color]} ${className}`)}>{children}</HTMLTag>;
 }

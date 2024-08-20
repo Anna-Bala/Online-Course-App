@@ -40,7 +40,7 @@ export default function PricingPlans() {
       </div>
       <section className="flex flex-col gap-[30px] p-5 bg-absolute-white rounded-xl">
         {pricingPlans.map((pricingPlan) => (
-          <SinglePricingPlan isMonthly={isMonthly} pricingPlan={pricingPlan} />
+          <SinglePricingPlan isMonthly={isMonthly} pricingPlan={pricingPlan} key={pricingPlan.id} />
         ))}
       </section>
     </>

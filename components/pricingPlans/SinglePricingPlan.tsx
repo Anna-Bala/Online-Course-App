@@ -5,6 +5,7 @@ import Typography, { typographyColors, typographyVariants } from "@/components/T
 type Props = {
   isMonthly: boolean;
   pricingPlan: {
+    id: string;
     availableFeatures: string[];
     isFree: boolean;
     monthyPrice: number;
@@ -39,7 +40,7 @@ export default function SinglePricingPlan({ isMonthly, pricingPlan }: Props) {
         </Typography>
 
         {pricingPlan.availableFeatures.map((feature) => (
-          <div className="flex gap-2 p-3 bg-absolute-white border border-white-95 rounded-md w-full">
+          <div className="flex gap-2 p-3 bg-absolute-white border border-white-95 rounded-md w-full" key={feature}>
             <div className="p-1 rounded bg-orange-95 h-max">
               <CheckMarkIcon size={16} />
             </div>
@@ -50,7 +51,7 @@ export default function SinglePricingPlan({ isMonthly, pricingPlan }: Props) {
         ))}
 
         {pricingPlan.unavailableFeatures.map((feature) => (
-          <div className="flex gap-2 p-3 bg-absolute-white border border-white-95 rounded-md w-full">
+          <div className="flex gap-2 p-3 bg-absolute-white border border-white-95 rounded-md w-full" key={feature}>
             <div className="p-1 rounded bg-absolute-white border border-white-95 h-max">
               <CrossIcon size={16} />
             </div>

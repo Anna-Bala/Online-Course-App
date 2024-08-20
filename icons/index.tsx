@@ -10,4 +10,5 @@ export { default as LogoIcon } from "./Logo";
 export { default as MailIcon } from "./Mail";
 export { default as NavigationIcon } from "./Navigation";
 export { default as PhoneIcon } from "./Phone";
+export { default as PlusIcon } from "./Plus";
 export { default as TwitterIcon } from "./Twitter";
