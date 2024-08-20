@@ -1,31 +1,38 @@
+import courseDesignImg from "@/public/course-design.png";
+import courseJavascriptImg from "@/public/course-javascript.png";
+import courseMobileImg from "@/public/course-mobile.png";
+import courseUXImg from "@/public/course-UX.png";
+import courseWebdesignImg from "@/public/course-webdesign.png";
+import courseWebImg from "@/public/course-web.png";
+
 export const benefits = [
   {
-    id: 1,
+    id: "a1b2c3d4",
     title: "Flexible Learning Schedule",
     description: "Fit your coursework around your existing commitments and obligations.",
   },
   {
-    id: 2,
+    id: "e5f6g7h8",
     title: "Expert Instruction",
     description: "Learn from industry experts who have hands-on experience in design and development.",
   },
   {
-    id: 3,
+    id: "i9j0k1l2",
     title: "Diverse Course Offerings",
     description: "Explore a wide range of design and development courses covering various topics.",
   },
   {
-    id: 4,
+    id: "m3n4o5p6",
     title: "Updated Curriculum",
     description: "Access courses with up-to-date content reflecting the latest trends and industry practices.",
   },
   {
-    id: 5,
+    id: "q7r8s9t0",
     title: "Practical Projects and Assignments",
     description: "Develop a portfolio showcasing your skills and abilities to potential employers.",
   },
   {
-    id: 6,
+    id: "u1v2w3x4",
     title: "Interactive Learning Environment",
     description: "Collaborate with fellow learners, exchanging ideas and feedback to enhance your understanding.",
   },
@@ -36,7 +43,7 @@ export const courses = [
     id: "c1a2b3",
     author: "John Smith",
     description: "Learn the fundamentals of web design, including HTML, CSS, and responsive design principles. Develop the skills to create visually appealing and user-friendly websites.",
-    image: "https://example.com/web-design.jpg",
+    image: courseWebdesignImg,
     level: "Beginner",
     title: "Web Design Fundamentals",
     weeks: 4,
@@ -127,7 +134,7 @@ export const courses = [
     id: "c2p3q4",
     author: "Emily Johnson",
     description: "Master the art of creating intuitive user interfaces (UI) and enhancing user experiences (UX). Learn design principles, wireframing, prototyping, and usability testing techniques.",
-    image: "https://example.com/ui-ux.jpg",
+    image: courseUXImg,
     level: "Intermediate",
     title: "UI/UX Design",
     weeks: 6,
@@ -243,7 +250,7 @@ export const courses = [
     id: "c3r4t5",
     author: "David Brown",
     description: "Dive into the world of mobile app development. Learn to build native iOS and Android applications using industry-leading frameworks like Swift and Kotlin.",
-    image: "https://example.com/mobile-app.jpg",
+    image: courseMobileImg,
     level: "Intermediate",
     title: "Mobile App Development",
     weeks: 8,
@@ -335,7 +342,7 @@ export const courses = [
     author: "Sarah Thompson",
     description:
       "Discover the fundamentals of graphic design, including typography, color theory, layout design, and image manipulation techniques. Create visually stunning designs for print and digital media.",
-    image: "https://example.com/graphic-design.jpg",
+    image: courseDesignImg,
     level: "Beginner",
     title: "Graphic Design for Beginners",
     weeks: 10,
@@ -426,7 +433,7 @@ export const courses = [
     id: "c5o6p7",
     author: "Michael Adams",
     description: "Become proficient in front-end web development. Learn HTML, CSS, JavaScript, and popular frameworks like Bootstrap and React. Build interactive and responsive websites.",
-    image: "https://example.com/frontend-dev.jpg",
+    image: courseWebImg,
     level: "Intermediate",
     title: "Front-End Web Development",
     weeks: 10,
@@ -518,7 +525,7 @@ export const courses = [
     author: "Jennifer Wilson",
     description:
       "Take your JavaScript skills to the next level. Explore advanced concepts like closures, prototypes, asynchronous programming, and ES6 features. Build complex applications with confidence.",
-    image: "https://example.com/advanced-js.jpg",
+    image: courseJavascriptImg,
     level: "Advance",
     title: "Advanced JavaScript",
     weeks: 6,

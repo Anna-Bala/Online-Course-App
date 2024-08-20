@@ -1,7 +1,9 @@
 import Image from "next/image";
 
-import { benefits } from "@/data";
+import { benefits, courses } from "@/data";
 import { BoltIcon, LinesIcon } from "@/icons";
+import Benefit from "@/components/Benefit";
+import Course from "@/components/Course";
 import HomePageSection from "@/components/HomePageSection";
 import LinkButton, { linkButtonVariants } from "@/components/LinkButton";
 import placeholderImg from "@/public/placeholder.png";
@@ -41,22 +43,23 @@ export default function Home() {
         </LinkButton>
       </div>
       <Image className="rounded-[10px]" alt="Video placeholder" src={placeholderImg} />
+
       <HomePageSection
         title="Benefits"
         description="Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget elit id imperdiet et. Cras eu sit dignissim lorem nibh et. Ac cum eget habitasse in velit fringilla feugiat senectus in."
       >
-        {benefits.map(({ description, id, title }, index) => (
-          <div className="p-[30px] bg-absolute-white rounded-[10px]" key={id}>
-            <Typography className="text-right font-bold text-[50px] leading-9 mb-[30px]" color={typographyColors.grey15} variant={typographyVariants.body}>
-              {`0${++index}`}
-            </Typography>
-            <Typography className="mb-[10px]" color={typographyColors.grey15} variant={typographyVariants.subtitle}>
-              {title}
-            </Typography>
-            <Typography color={typographyColors.grey30} variant={typographyVariants.body}>
-              {description}
-            </Typography>
-          </div>
+        {benefits.map((benefit, index) => (
+          <Benefit benefit={benefit} index={index} key={benefit.id} />
+        ))}
+      </HomePageSection>
+
+      <HomePageSection
+        title="Our Courses"
+        description="Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget elit id imperdiet et. Cras eu sit dignissim lorem nibh et. Ac cum eget habitasse in velit fringilla feugiat senectus in."
+        href="/courses"
+      >
+        {courses.map((course) => (
+          <Course course={course} key={course.id} />
         ))}
       </HomePageSection>
     </main>

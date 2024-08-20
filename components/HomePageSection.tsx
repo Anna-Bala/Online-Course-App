@@ -10,11 +10,10 @@ type Props = {
   className?: string;
   description: string;
   href?: string;
-  linkTitle?: string;
   title: string;
 };
 
-export default function HomePageSection({ children, className, description, href, linkTitle, title }: Props) {
+export default function HomePageSection({ children, description, href, title }: Props) {
   return (
     <section className="mt-[50px]">
       <Typography className="mb-1" color={typographyColors.grey15} variant={typographyVariants.h3}>
@@ -24,8 +23,8 @@ export default function HomePageSection({ children, className, description, href
         {description}
       </Typography>
       {href && (
-        <LinkButton className="mb-10" href={href} variant={linkButtonVariants.secondary}>
-          {linkTitle}
+        <LinkButton className="mb-10 w-max" href={href} variant={linkButtonVariants.secondary}>
+          View All
         </LinkButton>
       )}
       <div className="flex flex-col gap-5">{children}</div>
