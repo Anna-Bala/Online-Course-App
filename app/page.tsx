@@ -8,6 +8,7 @@ import HomePageSection from "@/components/HomePageSection";
 import LinkButton, { linkButtonVariants } from "@/components/LinkButton";
 import placeholderImg from "@/public/placeholder.png";
 import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
+import PricingPlans from "@/components/pricingPlans/PricingPlans";
 
 export default function Home() {
   return (
@@ -45,6 +46,7 @@ export default function Home() {
       <Image className="rounded-[10px]" alt="Video placeholder" src={placeholderImg} />
 
       <HomePageSection
+        bigMarginBelow
         title="Benefits"
         description="Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget elit id imperdiet et. Cras eu sit dignissim lorem nibh et. Ac cum eget habitasse in velit fringilla feugiat senectus in."
       >
@@ -61,6 +63,13 @@ export default function Home() {
         {courses.map((course) => (
           <Course course={course} key={course.id} />
         ))}
+      </HomePageSection>
+
+      <HomePageSection
+        title="Our Pricing"
+        description="Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget elit id imperdiet et. Cras eu sit dignissim lorem nibh et. Ac cum eget habitasse in velit fringilla feugiat senectus in."
+      >
+        <PricingPlans />
       </HomePageSection>
     </main>
   );

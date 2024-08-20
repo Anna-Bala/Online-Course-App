@@ -1,5 +1,7 @@
 export { default as ArrowRightIcon } from "./ArrowRight";
 export { default as BoltIcon } from "./Bolt";
+export { default as CheckMarkIcon } from "./CheckMark";
+export { default as CrossIcon } from "./Cross";
 export { default as FacebookIcon } from "./Facebook";
 export { default as LinesIcon } from "./Lines";
 export { default as LinkedInIcon } from "./LinkedIn";

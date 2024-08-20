@@ -559,3 +559,28 @@ export const courses = [
     ],
   },
 ];
+
+export const pricingPlans = [
+  {
+    isFree: true,
+    monthyPrice: 0,
+    yearlyPrice: 0,
+    availableFeatures: ["Access to selected free courses.", "Limited course materials and resources.", "Basic community support.", "No certification upon completion.", "Ad-supported platform."],
+    unavailableFeatures: ["Access to exclusive Pro Plan community forums.", "Early access to new courses and updates."],
+  },
+  {
+    isFree: false,
+    monthyPrice: 79,
+    yearlyPrice: 850,
+    availableFeatures: [
+      "Unlimited access to all courses.",
+      "Unlimited course materials and resources.",
+      "Priority support from instructors.",
+      "Course completion certificates.",
+      "Ad-free experience.",
+      "Access to exclusive Pro Plan community forums.",
+      "Early access to new courses and updates.",
+    ],
+    unavailableFeatures: [],
+  },
+];
