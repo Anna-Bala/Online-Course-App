@@ -26,9 +26,12 @@ const variantClassNames = {
 export default function LinkButton({ children, className, fullWidth = false, href, variant = "primary" }: Props) {
   return (
     <Link
-      className={classNames(`block px-5 py-[14px] 2xl:px-6 2xl:py-[18px] rounded-md 2xl:rounded-lg transition-colors duration-300 ease-in-out  ${variantClassNames[variant]} ${className}`, {
-        "flex-grow": fullWidth,
-      })}
+      className={classNames(
+        `flex items-center justify-center px-5 py-[14px] 2xl:px-6 2xl:py-[18px] rounded-md 2xl:rounded-lg transition-colors duration-300 ease-in-out  ${variantClassNames[variant]} ${className}`,
+        {
+          "flex-grow": fullWidth,
+        }
+      )}
       href={href}
     >
       {children}
