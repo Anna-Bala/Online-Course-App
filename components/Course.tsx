@@ -28,7 +28,7 @@ type Props = {
 
 export default function Course({ course }: Props) {
   return (
-    <div className="p-6 bg-absolute-white rounded-[10px] lg:w-5/12 lg:flex-grow" key={course.id}>
+    <div className="p-6 bg-absolute-white rounded-[10px] lg:w-5/12 lg:flex-grow xl:w-1/4" key={course.id}>
       <div className="h-[172px] lg:h-[266px] relative">
         <Image fill className="rounded-md" alt={course.title} src={course.image.src} style={{ objectFit: "cover" }} sizes="(min-width: 1024px) 40vw, 90vw" />
       </div>

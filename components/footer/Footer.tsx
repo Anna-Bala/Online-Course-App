@@ -32,7 +32,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="flex flex-wrap gap-x-[30px] mt-6 lg:mt-0">
-        <div className="flex flex-col gap-1 xl:w-[230px] 2xl:w-[250px]">
+        <div className="flex flex-col gap-1 lg:w-[230px] 2xl:w-[250px]">
           <Link className="mb-[6px]" href="/">
             <Typography className="text-[18px] 2xl:text-xl" variant={typographyVariants.subtitle} color={typographyColors.grey15}>
               Home
@@ -59,7 +59,7 @@ export default function Footer() {
             </Typography>
           </Link>
         </div>
-        <div className="flex flex-col gap-1 xl:w-[230px] 2xl:w-[250px]">
+        <div className="flex flex-col gap-1 2xl:w-[230px] 2xl:w-[250px]">
           <Link className="mb-[6px]" href="/about-us">
             <Typography className="text-[18px] 2xl:text-xl" variant={typographyVariants.subtitle} color={typographyColors.grey15}>
               About Us

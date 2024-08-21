@@ -13,8 +13,8 @@ import Typography, { typographyColors, typographyVariants } from "@/components/T
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center px-4 lg:px-5 2xl:px-[30px]">
-      <div className="w-full relative">
+    <main className="flex min-h-screen flex-col items-center px-4 lg:px-[80px] 2xl:px-[162px]">
+      <div className="w-max relative">
         <div className="absolute -top-1/4 left-[-3%]">
           <LinesIcon />
         </div>
@@ -32,19 +32,22 @@ export default function Home() {
           </div>
         </div>
       </div>
+
       <Typography className="text-center mt-4 mb-[6px]" color={typographyColors.grey15} htmlTag="span" variant={typographyVariants.h2}>
         with Online Design and Development Courses.
       </Typography>
       <Typography className="text-center w-[80%]" color={typographyColors.grey15} htmlTag="span" variant={typographyVariants.body}>
         Learn from Industry Experts and Enhance Your Skills.
       </Typography>
+
       <div className="flex gap-3 mt-[50px] mb-[30px]">
         <LinkButton href="/courses">Explore Courses</LinkButton>
         <LinkButton href="/pricing" variant={linkButtonVariants.secondary}>
           View Pricing
         </LinkButton>
       </div>
-      <Image className="rounded-[10px]" alt="Video placeholder" src={placeholderImg} />
+
+      <Image className="rounded-[10px] w-full h-auto" alt="Video placeholder" src={placeholderImg} />
 
       <HomePageSection
         bigMarginBelow

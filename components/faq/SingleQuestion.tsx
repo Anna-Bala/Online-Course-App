@@ -24,7 +24,7 @@ export default function SingleQuestion({ faq }: Props) {
   return (
     <button className="py-5 px-6 bg-absolute-white border border-white-95 rounded-[10px]" onClick={toggleIsOpen}>
       <div
-        className={classNames("flex justify-between", {
+        className={classNames("flex justify-between items-center", {
           "pb-5": isOpen,
           "border-b": isOpen,
           "border-white-95": isOpen,
