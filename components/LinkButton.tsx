@@ -27,7 +27,7 @@ export default function LinkButton({ children, className, fullWidth = false, hre
   return (
     <Link
       className={classNames(
-        `flex items-center justify-center px-5 py-[14px] 2xl:px-6 2xl:py-[18px] rounded-md 2xl:rounded-lg transition-colors duration-300 ease-in-out  ${variantClassNames[variant]} ${className}`,
+        `flex items-center justify-center px-5 py-[14px] 2xl:px-6 2xl:py-[18px] rounded-md 2xl:rounded-lg transition-colors duration-300 ease-in-out text-[14px] 2xl:text-[18px] ${variantClassNames[variant]} ${className}`,
         {
           "flex-grow": fullWidth,
         }

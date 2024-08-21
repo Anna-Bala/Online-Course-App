@@ -38,7 +38,7 @@ export default function PricingPlans() {
           </Typography>
         </button>
       </div>
-      <section className="flex flex-col gap-[30px] p-5 bg-absolute-white rounded-xl">
+      <section className="flex flex-col gap-[30px] p-5 bg-absolute-white rounded-xl lg:w-full lg:flex-row">
         {pricingPlans.map((pricingPlan) => (
           <SinglePricingPlan isMonthly={isMonthly} pricingPlan={pricingPlan} key={pricingPlan.id} />
         ))}

@@ -5,6 +5,7 @@ import classNames from "classnames";
 
 import PlusIcon from "@/icons/Plus";
 import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
+import useGetWindowSize from "@/hooks/useGetWindowSize";
 
 type Props = {
   faq: {
@@ -18,8 +19,10 @@ export default function SingleQuestion({ faq }: Props) {
 
   const toggleIsOpen = () => setisOpen((prevState) => !prevState);
 
+  const { is2Xl, isLg } = useGetWindowSize();
+
   return (
-    <div className="py-5 px-6 bg-absolute-white border border-white-95 rounded-[10px]">
+    <button className="py-5 px-6 bg-absolute-white border border-white-95 rounded-[10px]" onClick={toggleIsOpen}>
       <div
         className={classNames("flex justify-between", {
           "pb-5": isOpen,
@@ -27,14 +30,14 @@ export default function SingleQuestion({ faq }: Props) {
           "border-white-95": isOpen,
         })}
       >
-        <Typography className="!text-[16px] !font-medium mr-10" color={typographyColors.grey15} variant={typographyVariants.body}>
+        <Typography className="!text-[16px] !font-medium mr-10 lg:!text-[18px] 2xl:!text-[20px]" color={typographyColors.grey15} variant={typographyVariants.body}>
           {faq.question}
         </Typography>
-        <button className="p-[10px] bg-orange-95 rounded-md h-max" onClick={toggleIsOpen}>
+        <div className="p-[10px] bg-orange-95 rounded-md h-max">
           <div className={classNames("transition-all ease-in-out delay-150 duration-300", { "-rotate-45": isOpen })}>
-            <PlusIcon size={20} />
+            <PlusIcon size={is2Xl ? 28 : isLg ? 24 : 20} />
           </div>
-        </button>
+        </div>
       </div>
       <Typography
         className={classNames("transition-all ease-in-out delay-150 duration-300 overflow-hidden", {
@@ -46,6 +49,6 @@ export default function SingleQuestion({ faq }: Props) {
       >
         {faq.answer}
       </Typography>
-    </div>
+    </button>
   );
 }
