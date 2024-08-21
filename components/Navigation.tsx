@@ -1,12 +1,15 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 import classNames from "classnames";
 import Link from "next/link";
 
 import ArrowRightIcon from "@/icons/ArrowRight";
 import LinkButton, { linkButtonVariants } from "./LinkButton";
 import LogoIcon from "@/icons/Logo";
+import NavigationIcon from "@/icons/Navigation";
+import useGetWindowSize from "@/hooks/useGetWindowSize";
 
 const contentNavigationItems = [
   {
@@ -46,7 +49,12 @@ const credentialsNavigationItems = [
 ];
 
 export default function Navigation() {
+  const [isMobileNavigationOpen, setIsMobileNavigationOpen] = useState(false);
+
+  const toggleIsMobileNavigationOpen = () => setIsMobileNavigationOpen((prevState) => !prevState);
+
   const pathname = usePathname();
+  const { isMobile } = useGetWindowSize();
 
   return (
     <header className="flex flex-col items-center justify-between lg:px-5">
@@ -62,13 +70,21 @@ export default function Navigation() {
           <Link className="mr-[46px]" href="/">
             <LogoIcon size={40} />
           </Link>
-          {contentNavigationItems.map(({ href, name }) => (
-            <li key={href}>
-              <LinkButton className={classNames("py-3 2xl:py-[14px]", { "bg-white-95": pathname === href })} variant={linkButtonVariants.link} href={href}>
-                {name}
-              </LinkButton>
-            </li>
-          ))}
+          <div
+            className={classNames("flex gap-1", {
+              "flex-col items-end absolute mt-[160px] ml-auto bg-absolute-white w-max h-max p-6 rounded-l-lg z-50 inset-0 transform translate-x-full transition-transform duration-300": isMobile,
+              "items-center": !isMobile,
+              "-translate-x-0": isMobileNavigationOpen,
+            })}
+          >
+            {contentNavigationItems.map(({ href, name }) => (
+              <li className={classNames({ "w-full": isMobile })} key={href}>
+                <LinkButton className={classNames("py-3 2xl:py-[14px] text-center", { "bg-white-95": pathname === href })} fullWidth={isMobile} variant={linkButtonVariants.link} href={href}>
+                  {name}
+                </LinkButton>
+              </li>
+            ))}
+          </div>
           <div className="flex ml-auto">
             {credentialsNavigationItems.map(({ href, name, variant }) => (
               <li key={href}>
@@ -77,6 +93,11 @@ export default function Navigation() {
                 </LinkButton>
               </li>
             ))}
+            {isMobile && (
+              <button onClick={toggleIsMobileNavigationOpen}>
+                <NavigationIcon size={34} />
+              </button>
+            )}
           </div>
         </ul>
       </nav>

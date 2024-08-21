@@ -21,10 +21,11 @@ function useGetWindowSize() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const isMobile = windowDimensions.width <= 800;
   const isLg = windowDimensions.width >= 1024;
   const is2Xl = windowDimensions.width >= 1536;
 
-  return { isLg, is2Xl };
+  return { isMobile, isLg, is2Xl };
 }
 
 export default useGetWindowSize;
