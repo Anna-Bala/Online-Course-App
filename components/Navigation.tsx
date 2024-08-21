@@ -73,13 +73,13 @@ export default function Navigation() {
       <nav className="w-full border-b border-white-95 pb-[14px]">
         <ul className="flex items-center gap-1 lg:px-[60px] 2xl:px-[132px]">
           <Link className="mr-[46px]" href="/">
-            <LogoIcon size={is2Xl ? 54 : isLg ? 44 : 20} />
+            <LogoIcon size={is2Xl ? 54 : isLg ? 44 : 40} />
           </Link>
           <div
             className={classNames("flex gap-1", {
               "flex-col items-end absolute mt-[160px] ml-auto bg-absolute-white w-full h-max p-6 rounded-l-lg z-50 inset-0 transform translate-x-full transition-transform duration-300": isMobile,
               "items-center": !isMobile,
-              "-translate-x-0": isMobileNavigationOpen,
+              "translate-x-0": isMobileNavigationOpen,
             })}
           >
             {contentNavigationItems.map(({ href, name }) => (
