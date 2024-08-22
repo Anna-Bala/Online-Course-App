@@ -1,9 +1,21 @@
-import courseDesignImg from "@/public/course-design.png";
-import courseJavascriptImg from "@/public/course-javascript.png";
-import courseMobileImg from "@/public/course-mobile.png";
-import courseUXImg from "@/public/course-UX.png";
-import courseWebdesignImg from "@/public/course-webdesign.png";
-import courseWebImg from "@/public/course-web.png";
+import courseDesignImg1 from "@/public/course-design-1.png";
+import courseDesignImg2 from "@/public/course-design-2.png";
+import courseDesignImg3 from "@/public/course-design-3.png";
+import courseJavascriptImg1 from "@/public/course-javascript-1.png";
+import courseJavascriptImg2 from "@/public/course-javascript-2.png";
+import courseJavascriptImg3 from "@/public/course-javascript-3.png";
+import courseMobileImg1 from "@/public/course-mobile-1.png";
+import courseMobileImg2 from "@/public/course-mobile-2.png";
+import courseMobileImg3 from "@/public/course-mobile-3.png";
+import courseUXImg1 from "@/public/course-UX-1.png";
+import courseUXImg2 from "@/public/course-UX-2.png";
+import courseUXImg3 from "@/public/course-UX-3.png";
+import courseWebdesignImg1 from "@/public/course-webdesign-1.png";
+import courseWebdesignImg2 from "@/public/course-webdesign-2.png";
+import courseWebdesignImg3 from "@/public/course-webdesign-3.png";
+import courseWebImg1 from "@/public/course-web-1.png";
+import courseWebImg2 from "@/public/course-web-2.png";
+import courseWebImg3 from "@/public/course-web-3.png";
 
 export const benefits = [
   {
@@ -43,7 +55,7 @@ export const courses = [
     id: "c1a2b3",
     author: "John Smith",
     description: "Learn the fundamentals of web design, including HTML, CSS, and responsive design principles. Develop the skills to create visually appealing and user-friendly websites.",
-    image: courseWebdesignImg,
+    images: [courseWebdesignImg1, courseWebdesignImg2, courseWebdesignImg3],
     level: "Beginner",
     title: "Web Design Fundamentals",
     weeks: 4,
@@ -134,7 +146,7 @@ export const courses = [
     id: "c2p3q4",
     author: "Emily Johnson",
     description: "Master the art of creating intuitive user interfaces (UI) and enhancing user experiences (UX). Learn design principles, wireframing, prototyping, and usability testing techniques.",
-    image: courseUXImg,
+    images: [courseUXImg1, courseUXImg2, courseUXImg3],
     level: "Intermediate",
     title: "UI/UX Design",
     weeks: 6,
@@ -250,7 +262,7 @@ export const courses = [
     id: "c3r4t5",
     author: "David Brown",
     description: "Dive into the world of mobile app development. Learn to build native iOS and Android applications using industry-leading frameworks like Swift and Kotlin.",
-    image: courseMobileImg,
+    images: [courseMobileImg1, courseMobileImg2, courseMobileImg3],
     level: "Intermediate",
     title: "Mobile App Development",
     weeks: 8,
@@ -342,7 +354,7 @@ export const courses = [
     author: "Sarah Thompson",
     description:
       "Discover the fundamentals of graphic design, including typography, color theory, layout design, and image manipulation techniques. Create visually stunning designs for print and digital media.",
-    image: courseDesignImg,
+    images: [courseDesignImg1, courseDesignImg2, courseDesignImg3],
     level: "Beginner",
     title: "Graphic Design for Beginners",
     weeks: 10,
@@ -433,7 +445,7 @@ export const courses = [
     id: "c5o6p7",
     author: "Michael Adams",
     description: "Become proficient in front-end web development. Learn HTML, CSS, JavaScript, and popular frameworks like Bootstrap and React. Build interactive and responsive websites.",
-    image: courseWebImg,
+    images: [courseWebImg1, courseWebImg2, courseWebImg3],
     level: "Intermediate",
     title: "Front-End Web Development",
     weeks: 10,
@@ -525,7 +537,7 @@ export const courses = [
     author: "Jennifer Wilson",
     description:
       "Take your JavaScript skills to the next level. Explore advanced concepts like closures, prototypes, asynchronous programming, and ES6 features. Build complex applications with confidence.",
-    image: courseJavascriptImg,
+    images: [courseJavascriptImg1, courseJavascriptImg2, courseJavascriptImg3],
     level: "Advance",
     title: "Advanced JavaScript",
     weeks: 6,
@@ -552,6 +564,120 @@ export const courses = [
           {
             id: "l3r4s5",
             title: "Modern ES6+ Features",
+            duration: "1 Hour",
+          },
+          {
+            id: "l6t7u8",
+            title: "JavaScript Modules and Tooling",
+            duration: "1 Hour 10 Minutes",
+          },
+          {
+            id: "l9v0w1",
+            title: "Advanced Error Handling",
+            duration: "1 Hour 5 Minutes",
+          },
+        ],
+      },
+      {
+        id: "s2n3o4",
+        title: "JavaScript Design Patterns",
+        lessons: [
+          {
+            id: "l8p9q0",
+            title: "Introduction to Design Patterns",
+            duration: "1 Hour",
+          },
+          {
+            id: "l2r3s4",
+            title: "Factory and Singleton Patterns",
+            duration: "1 Hour 20 Minutes",
+          },
+          {
+            id: "l5t6u7",
+            title: "Observer and Mediator Patterns",
+            duration: "1 Hour 15 Minutes",
+          },
+          {
+            id: "l8v9w0",
+            title: "Module and Revealing Module Patterns",
+            duration: "1 Hour",
+          },
+        ],
+      },
+      {
+        id: "s3p4q5",
+        title: "JavaScript Performance Optimization",
+        lessons: [
+          {
+            id: "l1a2b3",
+            title: "Understanding the Event Loop",
+            duration: "1 Hour 10 Minutes",
+          },
+          {
+            id: "l4c5d6",
+            title: "Optimizing Loops and Conditions",
+            duration: "1 Hour",
+          },
+          {
+            id: "l7e8f9",
+            title: "Memory Management and Garbage Collection",
+            duration: "1 Hour 15 Minutes",
+          },
+          {
+            id: "l0g1h2",
+            title: "Optimizing DOM Manipulation",
+            duration: "1 Hour",
+          },
+        ],
+      },
+      {
+        id: "s4r5t6",
+        title: "Testing and Debugging JavaScript",
+        lessons: [
+          {
+            id: "l3i4j5",
+            title: "Introduction to Testing Frameworks",
+            duration: "1 Hour",
+          },
+          {
+            id: "l6k7l8",
+            title: "Unit Testing with Mocha and Chai",
+            duration: "1 Hour 20 Minutes",
+          },
+          {
+            id: "l9m0n1",
+            title: "End-to-End Testing with Selenium",
+            duration: "1 Hour 15 Minutes",
+          },
+          {
+            id: "l2o3p4",
+            title: "Debugging Techniques and Tools",
+            duration: "1 Hour 10 Minutes",
+          },
+        ],
+      },
+      {
+        id: "s5u6v7",
+        title: "JavaScript and Web APIs",
+        lessons: [
+          {
+            id: "l5q6r7",
+            title: "Introduction to Web APIs",
+            duration: "1 Hour",
+          },
+          {
+            id: "l8s9t0",
+            title: "Working with the Fetch API",
+            duration: "1 Hour 10 Minutes",
+          },
+          {
+            id: "l1u2v3",
+            title: "Manipulating the DOM with JavaScript",
+            duration: "1 Hour 15 Minutes",
+          },
+          {
+            id: "l4w5x6",
+            title: "Using the Canvas API for Graphics",
             duration: "1 Hour",
           },
         ],

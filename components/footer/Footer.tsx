@@ -7,7 +7,7 @@ import Typography, { typographyColors, typographyVariants } from "../Typography"
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col bg-absolute-white px-5 pt-[50px] pb-6 lg:px-20 lg:pt-[60px] lg:pb-5 lg:flex-row lg:flex-wrap lg:justify-between 2xl:pt-[100px] 2xl:pb-[30px] 2xl:px-[162px] mt-[50px] lg:mt-[100px]">
+    <footer className="flex flex-col bg-absolute-white px-5 pt-[50px] pb-6 lg:px-20 lg:pt-[60px] lg:pb-5 lg:flex-row lg:flex-wrap lg:justify-between 2xl:pt-[100px] 2xl:pb-[30px] 2xl:px-[162px] mt-[50px] lg:mt-[100px] 2xl:mt-[150px]">
       <div className="flex flex-col gap-[30px]">
         <Logo />
         <div className="flex flex-col gap-3">
