@@ -1,4 +1,6 @@
 import { achievements, goals } from "./aboutUsData";
+import LinkButton, { linkButtonVariants } from "@/components/LinkButton";
+import LogoGreyIcon from "@/icons/LogoGrey";
 import PageHeader from "@/components/PageHeader";
 import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
 
@@ -55,6 +57,30 @@ export default function AboutUs() {
           items: goals,
           title: "Our Goals",
         })}
+      </div>
+
+      <div className="w-full lg:px-[60px] 2xl:px-[132px]">
+        <div className="p-[30px] mt-[50px] relative bg-absolute-white rounded-[10px] xl:p-10 xl:mt-[60px] xl:p-[60px] xl:flex xl:items-center 2xl:p-[80px] 2xl:rounded-xl">
+          <div className="mb-10 xl:mb-0 xl:w-[55%] relative z-10">
+            <div className="mb-[10px]">
+              <Typography className="leading-[34px] xl:leading-[46px]" color={typographyColors.orange50} htmlTag="span" variant={typographyVariants.h3}>
+                Together
+              </Typography>
+              <Typography className="leading-[34px] xl:leading-[46px]" color={typographyColors.grey15} htmlTag="span" variant={typographyVariants.h3}>
+                , let&apos;s shape the future of digital innovation
+              </Typography>
+            </div>
+            <Typography color={typographyColors.grey30} variant={typographyVariants.body}>
+              Join us on this exciting learning journey and unlock your potential in design and development.
+            </Typography>
+          </div>
+          <LinkButton className="w-max relative z-10 xl:ml-auto" href="/login" variant={linkButtonVariants.primary}>
+            Join Now
+          </LinkButton>
+          <div className="absolute -right-[33px] -bottom-[92px] xl:right-[147px] xl:-bottom-[114px] 2xl:right-[193px] 2xl:-top-[61px]">
+            <LogoGreyIcon />
+          </div>
+        </div>
       </div>
     </main>
   );
