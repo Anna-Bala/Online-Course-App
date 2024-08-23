@@ -11,7 +11,7 @@ export default function Courses() {
       />
       <div className="flex flex-col gap-5 w-full px-4 lg:px-[60px] 2xl:px-[142px] lg:gap-10 2xl:gap-[50px]">
         {courses.map((course) => (
-          <DetailedCourse course={course} />
+          <DetailedCourse course={course} key={course.id} />
         ))}
       </div>
     </main>

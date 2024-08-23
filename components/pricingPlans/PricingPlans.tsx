@@ -14,7 +14,7 @@ export default function PricingPlans() {
 
   return (
     <>
-      <div className="p-3 bg-absolute-white rounded-lg w-max mx-auto mb-10">
+      <div className="p-3 bg-absolute-white rounded-lg w-max mx-auto mb-10 lg:mb-[50px]">
         <button
           className={classNames("rounded-md px-6 py-3", {
             "bg-orange-50": isMonthly,
@@ -38,7 +38,7 @@ export default function PricingPlans() {
           </Typography>
         </button>
       </div>
-      <section className="flex flex-col gap-[30px] p-5 bg-absolute-white rounded-xl lg:w-full lg:flex-row">
+      <section className="flex flex-col gap-[30px] p-5 bg-absolute-white rounded-xl lg:w-full lg:flex-row lg:p-[50px] 2xl:p-[80px]">
         {pricingPlans.map((pricingPlan) => (
           <SinglePricingPlan isMonthly={isMonthly} pricingPlan={pricingPlan} key={pricingPlan.id} />
         ))}

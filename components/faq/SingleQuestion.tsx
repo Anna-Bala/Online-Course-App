@@ -22,7 +22,7 @@ export default function SingleQuestion({ faq }: Props) {
   const { is2Xl, isLg } = useGetWindowSize();
 
   return (
-    <button className="py-5 px-6 bg-absolute-white border border-white-95 rounded-[10px]" onClick={toggleIsOpen}>
+    <button className="py-5 px-6 bg-absolute-white border border-white-95 rounded-[10px] lg:py-6 lg:px-10 2xl:py-[30px] 2xl:px-[50px] 2xl:rounded-xl" onClick={toggleIsOpen}>
       <div
         className={classNames("flex justify-between items-center", {
           "pb-5": isOpen,
@@ -40,8 +40,8 @@ export default function SingleQuestion({ faq }: Props) {
         </div>
       </div>
       <Typography
-        className={classNames("transition-all ease-in-out delay-150 duration-300 overflow-hidden", {
-          "max-h-[1000px] opacity-100 mt-5": isOpen,
+        className={classNames("text-left transition-all ease-in-out delay-150 duration-300 overflow-hidden", {
+          "max-h-[1000px] opacity-100 mt-5 lg:mt-10 2xl:mt-[50px]": isOpen,
           "max-h-0 opacity-0": !isOpen,
         })}
         color={typographyColors.grey30}

@@ -4,7 +4,7 @@ import faqData from "./faqData";
 
 export default function FAQ() {
   return (
-    <section className="mt-[50px] p-6 bg-absolute-white rounded-xl lg:mt-[100px] lg:flex lg:gap-x-[80px] lg:p-[80px]">
+    <section className="mt-[50px] p-6 bg-absolute-white rounded-xl lg:mt-[100px] lg:flex lg:gap-x-[80px] lg:p-[80px] 2xl:mt-[150px] 2xl:p-[100px]">
       <div className="mb-10 lg:min-w-[408px]">
         <Typography className="mb-1" color={typographyColors.grey15} variant={typographyVariants.h3}>
           Frequently Asked Questions
@@ -18,7 +18,7 @@ export default function FAQ() {
           </a>
         </Typography>
       </div>
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-5 lg:gap-[30px]">
         {faqData.map((faq) => (
           <SingleQuestion faq={faq} key={faq.question} />
         ))}

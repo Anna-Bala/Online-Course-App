@@ -58,7 +58,7 @@ export default function Navigation() {
   const { isMobile, isLg, is2Xl } = useGetWindowSize();
 
   return (
-    <header className="flex flex-col items-center justify-between px-4 pt-10 mb-[50px] lg:px-5 lg:pt-0 lg:mb-[80px]">
+    <header className="flex flex-col items-center justify-between px-4 pt-10 mb-[50px] lg:px-5 lg:pt-0 lg:mb-[80px 2xl:mb-[109px]">
       <div className="flex items-center justify-center text-absolute-white bg-orange-50 w-full text-center py-[10px] px-4 lg:py-[14px] rounded-md 2xl:rounded-lg mb-4 2xl:mb-5">
         <Typography color={typographyColors.white} variant={typographyVariants.body}>
           Free Courses 🌟 Sale Ends Soon,&nbsp;
