@@ -11,6 +11,7 @@ type Props = {
     author: string;
     description: string;
     images: StaticImageData[];
+    intro: string;
     level: string;
     title: string;
     weeks: number;

@@ -3,6 +3,7 @@ export { default as BatteryIcon } from "./Battery";
 export { default as BoltIcon } from "./Bolt";
 export { default as BookIcon } from "./Book";
 export { default as CheckMarkIcon } from "./CheckMark";
+export { default as ClockIcon } from "./Clock";
 export { default as CrossIcon } from "./Cross";
 export { default as CrownIcon } from "./Crown";
 export { default as FacebookIcon } from "./Facebook";

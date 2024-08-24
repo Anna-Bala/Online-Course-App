@@ -56,6 +56,8 @@ export const courses = [
     author: "John Smith",
     description: "Learn the fundamentals of web design, including HTML, CSS, and responsive design principles. Develop the skills to create visually appealing and user-friendly websites.",
     images: [courseWebdesignImg1, courseWebdesignImg2, courseWebdesignImg3],
+    intro:
+      "Kickstart your journey into web design with this comprehensive course that covers essential tools and techniques to build beautiful and functional websites. From HTML basics to responsive design, you'll gain a solid foundation to create engaging web experiences.",
     level: "Beginner",
     title: "Web Design Fundamentals",
     weeks: 4,
@@ -147,6 +149,8 @@ export const courses = [
     author: "Emily Johnson",
     description: "Master the art of creating intuitive user interfaces (UI) and enhancing user experiences (UX). Learn design principles, wireframing, prototyping, and usability testing techniques.",
     images: [courseUXImg1, courseUXImg2, courseUXImg3],
+    intro:
+      "Dive deep into UI/UX design and learn how to craft user-centered experiences. This course will guide you through the entire design process from research and wireframing to prototyping and usability testing, preparing you to create impactful digital products.",
     level: "Intermediate",
     title: "UI/UX Design",
     weeks: 6,
@@ -263,6 +267,8 @@ export const courses = [
     author: "David Brown",
     description: "Dive into the world of mobile app development. Learn to build native iOS and Android applications using industry-leading frameworks like Swift and Kotlin.",
     images: [courseMobileImg1, courseMobileImg2, courseMobileImg3],
+    intro:
+      "Explore the exciting field of mobile app development and learn to build robust applications for iOS and Android. This course covers everything from basic programming to advanced techniques, equipping you with the skills needed to create high-quality mobile apps.",
     level: "Intermediate",
     title: "Mobile App Development",
     weeks: 8,
@@ -355,6 +361,8 @@ export const courses = [
     description:
       "Discover the fundamentals of graphic design, including typography, color theory, layout design, and image manipulation techniques. Create visually stunning designs for print and digital media.",
     images: [courseDesignImg1, courseDesignImg2, courseDesignImg3],
+    intro:
+      "Unleash your creativity with a thorough introduction to graphic design. This course covers essential concepts like typography, color theory, and layout design, enabling you to create visually compelling designs for both print and digital media.",
     level: "Beginner",
     title: "Graphic Design for Beginners",
     weeks: 10,
@@ -446,6 +454,8 @@ export const courses = [
     author: "Michael Adams",
     description: "Become proficient in front-end web development. Learn HTML, CSS, JavaScript, and popular frameworks like Bootstrap and React. Build interactive and responsive websites.",
     images: [courseWebImg1, courseWebImg2, courseWebImg3],
+    intro:
+      "Enhance your front-end development skills with a deep dive into HTML, CSS, and JavaScript. This course will also introduce you to popular frameworks like Bootstrap and React, empowering you to build dynamic and responsive websites.",
     level: "Intermediate",
     title: "Front-End Web Development",
     weeks: 10,
@@ -538,6 +548,8 @@ export const courses = [
     description:
       "Take your JavaScript skills to the next level. Explore advanced concepts like closures, prototypes, asynchronous programming, and ES6 features. Build complex applications with confidence.",
     images: [courseJavascriptImg1, courseJavascriptImg2, courseJavascriptImg3],
+    intro:
+      "Elevate your JavaScript expertise with advanced topics like closures, prototypes, and asynchronous programming. This course will also cover ES6 features and performance optimization, preparing you to tackle complex development challenges with confidence.",
     level: "Advance",
     title: "Advanced JavaScript",
     weeks: 6,

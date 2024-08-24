@@ -11,6 +11,7 @@ type Props = {
     author: string;
     description: string;
     images: StaticImageData[];
+    intro: string;
     level: string;
     title: string;
     weeks: number;
@@ -45,7 +46,7 @@ export default function DetailedCourse({ course }: Props) {
 
       <div className="w-full flex gap-[10px] my-6 2xl:my-[30px]">
         {course.images.map((image, index) => (
-          <div className="relative w-2/6 h-[100px] lg:h-[325px] 2xl:h-[422px]">
+          <div className="relative w-2/6 h-[100px] lg:h-[325px] 2xl:h-[422px]" key={image.src}>
             <Image className="rounded" fill alt={`${course.title}${index}`} src={image.src} style={{ objectFit: "cover" }} sizes="30vw" />
           </div>
         ))}
@@ -72,8 +73,8 @@ export default function DetailedCourse({ course }: Props) {
           Curriculum
         </Typography>
         <div className="p-6 flex flex-col lg:flex-row lg:px-0 lg:divide-x 2xl:py-[30px]">
-          {course.sections.map(({ title }, index) => (
-            <div className="basis-full lg:px-10 2xl:px-[50px]">
+          {course.sections.map(({ id, title }, index) => (
+            <div className="basis-full lg:px-10 2xl:px-[50px]" key={id}>
               <Typography
                 className="!font-extrabold !text-[30px] leading-[22px] lg:!text-[40px] lg:leading-[30px] 2xl:!text-[50px] 2xl:leading-[37px]"
                 color={typographyColors.grey15}
