@@ -24,8 +24,9 @@ type Props = {
     | "orange97"
     | "orange99";
   className?: string;
+  htmlFor?: string;
   htmlTag?: keyof JSX.IntrinsicElements;
-  variant?: "h1" | "h2" | "h3" | "body" | "subtitle";
+  variant?: "h1" | "h2" | "h3" | "body" | "label" | "subtitle";
 };
 
 const colorClassNames = {
@@ -54,6 +55,7 @@ const typographyVariants = {
   h2: "h2",
   h3: "h3",
   body: "body",
+  label: "label",
   subtitle: "subtitle",
 } as const;
 
@@ -83,6 +85,7 @@ const variantHTMLTag = {
   h2: "h2",
   h3: "h3",
   body: "p",
+  label: "label",
   subtitle: "p",
 };
 
@@ -91,13 +94,18 @@ const variantClassNames = {
   h2: "text-2xl lg:text-[28px] 2xl:text-[38px] font-medium",
   h3: "text-[28px] lg:text-[38px] 2xl:text-5xl font-semibold",
   body: "text-sm lg:text-base 2xl:text-lg font-normal",
+  label: "text-sm lg:text-base 2xl:text-lg font-medium",
   subtitle: "text-xl lg:text-xl 2xl:text-2xl font-semibold",
 };
 
-export default function Typography({ children, color, className = "", htmlTag: CustomHTMLTag, variant = "body" }: Props) {
+export default function Typography({ children, color, className = "", htmlFor, htmlTag: CustomHTMLTag, variant = "body" }: Props) {
   const HTMLTag = CustomHTMLTag || (variantHTMLTag[variant] as keyof JSX.IntrinsicElements);
 
-  return <HTMLTag className={classNames(`${variantClassNames[variant]} ${colorClassNames[color]} ${className}`)}>{children}</HTMLTag>;
+  return (
+    <HTMLTag className={classNames(`${variantClassNames[variant]} ${colorClassNames[color]} ${className}`)} htmlFor={htmlFor}>
+      {children}
+    </HTMLTag>
+  );
 }
 
 export { typographyColors, typographyVariants };
