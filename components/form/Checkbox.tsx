@@ -1,11 +1,13 @@
 "use client";
 
+import type { ReactNode } from "react";
+
 import CheckIcon from "@/icons/Check";
 import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
 import useGetWindowSize from "@/hooks/useGetWindowSize";
 
 type Props = {
-  label: string;
+  label: string | ReactNode;
   name: string;
 };
 
