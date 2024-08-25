@@ -24,6 +24,7 @@ type Props = {
     | "orange97"
     | "orange99";
   className?: string;
+  href?: string;
   htmlFor?: string;
   htmlTag?: keyof JSX.IntrinsicElements;
   variant?: "h1" | "h2" | "h3" | "body" | "label" | "subtitle";
@@ -98,11 +99,11 @@ const variantClassNames = {
   subtitle: "text-xl lg:text-xl 2xl:text-2xl font-semibold",
 };
 
-export default function Typography({ children, color, className = "", htmlFor, htmlTag: CustomHTMLTag, variant = "body" }: Props) {
+export default function Typography({ children, color, className = "", href, htmlFor, htmlTag: CustomHTMLTag, variant = "body" }: Props) {
   const HTMLTag = CustomHTMLTag || (variantHTMLTag[variant] as keyof JSX.IntrinsicElements);
 
   return (
-    <HTMLTag className={classNames(`${variantClassNames[variant]} ${colorClassNames[color]} ${className}`)} htmlFor={htmlFor}>
+    <HTMLTag className={classNames(`${variantClassNames[variant]} ${colorClassNames[color]} ${className}`)} href={href} htmlFor={htmlFor}>
       {children}
     </HTMLTag>
   );

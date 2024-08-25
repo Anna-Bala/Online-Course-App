@@ -1,14 +1,8 @@
 "use client";
 
-import { FacebookIcon, LinkedInIcon, TwitterIcon } from "@/icons";
-import useGetWindowSize from "@/hooks/useGetWindowSize";
+import { socialLinks } from "@/app/constants";
 import Typography, { typographyColors, typographyVariants } from "../Typography";
-
-const socialLinks = [
-  { Icon: FacebookIcon, link: "https://www.facebook.com/" },
-  { Icon: TwitterIcon, link: "https://www.twitter.com/" },
-  { Icon: LinkedInIcon, link: "https://www.linkedin.com/" },
-];
+import useGetWindowSize from "@/hooks/useGetWindowSize";
 
 export default function SocialProfiles() {
   const { is2Xl } = useGetWindowSize();
