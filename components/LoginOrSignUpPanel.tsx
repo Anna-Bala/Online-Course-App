@@ -10,9 +10,9 @@ type Props = {
 
 export default function LoginOrSignUpPanel({ isSignUp }: Props) {
   return (
-    <section className="flex flex-col bg-absolute-white p-[30px] rounded-[10px]">
-      <div className="flex flex-col gap-[30px]">
-        <div className="flex flex-col gap-2">
+    <section className="flex flex-col h-max bg-absolute-white p-[30px] rounded-[10px] lg:p-10 lg:w-5/12 lg:flex-grow 2xl:p-[50px] 2xl:rounded-xl">
+      <div className="flex flex-col gap-[30px] lg:gap-[40px] 2xl:gap-[50px]">
+        <div className="flex flex-col gap-2 2xl:gap-3">
           <Typography className="text-center" color={typographyColors.grey15} variant={typographyVariants.h3}>
             {isSignUp ? "Sign Up" : "Login"}
           </Typography>
@@ -21,11 +21,11 @@ export default function LoginOrSignUpPanel({ isSignUp }: Props) {
           </Typography>
         </div>
 
-        <div className="flex flex-col gap-6">
-          <form className="flex flex-col gap-5">
-            {isSignUp && <TextInput label="Full Name" labelClassName="mb-[10px]" name="fullName" placeholder="Enter your Name" />}
-            <TextInput label="Email" labelClassName="mb-[10px]" name="email" placeholder="Enter your Email" />
-            <PasswordInput label="Password" labelClassName="mb-[10px]" name="password" placeholder="Enter your Password" />
+        <div className="flex flex-col gap-6 2xl:gap-[30px]">
+          <form className="flex flex-col gap-5 2xl:gap-6">
+            {isSignUp && <TextInput label="Full Name" labelClassName="mb-[10px] 2xl:mb-[14px]" name="fullName" placeholder="Enter your Name" />}
+            <TextInput label="Email" labelClassName="mb-[10px] 2xl:mb-[14px]" name="email" placeholder="Enter your Email" />
+            <PasswordInput label="Password" labelClassName="mb-[10px] 2xl:mb-[14px]" name="password" placeholder="Enter your Password" />
             {isSignUp ? (
               <Checkbox
                 label={
@@ -41,12 +41,12 @@ export default function LoginOrSignUpPanel({ isSignUp }: Props) {
             ) : (
               <Checkbox label="Remember Me" name="shouldRememberUser" />
             )}
-            <button className="text-absolute-white text-[14px] font-medium rounded-md bg-orange-50 hover:bg-orange-70 py-[14px] px-5 lg:mx-auto 2xl:text-[18px]" type="submit">
+            <button className="w-full text-absolute-white text-[14px] font-medium rounded-md bg-orange-50 hover:bg-orange-70 py-[14px] px-5 lg:mx-auto 2xl:text-[18px]" type="submit">
               {isSignUp ? "Sign Up" : "Login"}
             </button>
           </form>
           {isSignUp ? (
-            <Typography className="!text-base text-center" color={typographyColors.grey15} variant={typographyVariants.body}>
+            <Typography className="text-center" color={typographyColors.grey15} variant={typographyVariants.body}>
               Already have an account?&nbsp;
               <Link className="font-medium underline" href="/login">
                 Login
@@ -54,7 +54,7 @@ export default function LoginOrSignUpPanel({ isSignUp }: Props) {
               </Link>
             </Typography>
           ) : (
-            <Typography className="!text-base text-center" color={typographyColors.grey15} variant={typographyVariants.body}>
+            <Typography className="text-center" color={typographyColors.grey15} variant={typographyVariants.body}>
               Don’t have an account?&nbsp;
               <Link className="font-medium underline" href="/sign-up">
                 Sign Up

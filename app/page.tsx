@@ -9,6 +9,7 @@ import HomePageSection from "@/components/HomePageSection";
 import LinkButton, { linkButtonVariants } from "@/components/LinkButton";
 import placeholderImg from "@/public/placeholder.png";
 import PricingPlans from "@/components/pricingPlans/PricingPlans";
+import Testimonials from "@/components/testimonials/Testimonials";
 import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
 
 export default function Home() {
@@ -68,6 +69,8 @@ export default function Home() {
           <Course course={course} key={course.id} />
         ))}
       </HomePageSection>
+
+      <Testimonials className="mt-[50px] lg:mt-[100px]" showAll title="Our Testimonials" />
 
       <HomePageSection
         title="Our Pricing"
