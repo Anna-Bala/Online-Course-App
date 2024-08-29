@@ -10,7 +10,7 @@ export default function CourseDetailsNotFound({ params }: { params: { id: string
             Sorry
           </Typography>
           <Typography color={typographyColors.grey10} htmlTag="span" variant={typographyVariants.h2}>
-            ,&nbsp;we couldn't find the course
+            ,&nbsp;we couldn&apos;t find the course
           </Typography>
         </div>
         <LinkButton className="w-max" href="/" variant={linkButtonVariants.primary}>
