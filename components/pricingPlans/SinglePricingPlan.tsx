@@ -9,7 +9,7 @@ type Props = {
     id: string;
     availableFeatures: string[];
     isFree: boolean;
-    monthyPrice: number;
+    monthlyPrice: number;
     unavailableFeatures: string[];
     yearlyPrice: number;
   };
@@ -33,7 +33,7 @@ export default function SinglePricingPlan({ isMonthly, pricingPlan }: Props) {
           htmlTag="span"
           variant={typographyVariants.body}
         >
-          &#36;{isMonthly ? pricingPlan.monthyPrice : pricingPlan.yearlyPrice}
+          &#36;{isMonthly ? pricingPlan.monthlyPrice : pricingPlan.yearlyPrice}
         </Typography>
         <Typography className="!font-medium 2xl:!text-[20px]" color={typographyColors.grey30} htmlTag="span" variant={typographyVariants.body}>
           {isMonthly ? "/month" : "/year"}
