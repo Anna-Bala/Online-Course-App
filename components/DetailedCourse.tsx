@@ -1,30 +1,12 @@
 import Image from "next/image";
 
-import type { StaticImageData } from "next/image";
-
 import LinkButton, { linkButtonVariants } from "@/components/LinkButton";
 import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
 
+import type { Course } from "@/app/api/types";
+
 type Props = {
-  course: {
-    id: string;
-    author: string;
-    description: string;
-    images: StaticImageData[];
-    intro: string;
-    level: string;
-    title: string;
-    weeks: number;
-    sections: {
-      id: string;
-      title: string;
-      lessons: {
-        id: string;
-        duration: string;
-        title: string;
-      }[];
-    }[];
-  };
+  course: Course;
 };
 
 export default function DetailedCourse({ course }: Props) {
@@ -46,8 +28,8 @@ export default function DetailedCourse({ course }: Props) {
 
       <div className="w-full flex gap-[10px] my-6 2xl:my-[30px]">
         {course.images.map((image, index) => (
-          <div className="relative w-2/6 h-[100px] lg:h-[325px] 2xl:h-[422px]" key={image.src}>
-            <Image className="rounded" fill alt={`${course.title}${index}`} src={image.src} style={{ objectFit: "cover" }} sizes="30vw" />
+          <div className="relative w-2/6 h-[100px] lg:h-[325px] 2xl:h-[422px]" key={image}>
+            <Image className="rounded" fill alt={`${course.title}${index}`} src={image} style={{ objectFit: "cover" }} sizes="30vw" />
           </div>
         ))}
       </div>

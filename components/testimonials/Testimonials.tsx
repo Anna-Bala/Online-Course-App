@@ -1,5 +1,5 @@
+import { getTestimonials } from "@/utils/getApiData";
 import { renderTestimonial } from "./utils";
-import { testimonials } from "@/data";
 import TestimonialsCarousel from "./TestimonialsCarousel";
 import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
 
@@ -9,7 +9,9 @@ type Props = {
   title: string;
 };
 
-export default function Testimonials({ className, showAll, title }: Props) {
+export default async function Testimonials({ className, showAll, title }: Props) {
+  const testimonials = await getTestimonials();
+
   return (
     <section className={className}>
       <div className="mb-10 lg:mb-[60px] 2xl:mb-[80px]">
@@ -24,7 +26,7 @@ export default function Testimonials({ className, showAll, title }: Props) {
       {showAll ? (
         <div className="flex flex-col gap-5 lg:flex-row lg:flex-wrap 2xl:gap-[30px]">{testimonials.map((testimonial) => renderTestimonial(testimonial, showAll))}</div>
       ) : (
-        <TestimonialsCarousel />
+        <TestimonialsCarousel testimonials={testimonials} />
       )}
     </section>
   );

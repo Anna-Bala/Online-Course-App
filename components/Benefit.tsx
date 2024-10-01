@@ -1,11 +1,9 @@
 import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
 
+import type { Benefit } from "@/app/api/types";
+
 type Props = {
-  benefit: {
-    id: string;
-    description: string;
-    title: string;
-  };
+  benefit: Benefit;
   index: number;
 };
 

@@ -1,16 +1,29 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classNames from "classnames";
 
-import { pricingPlans } from "@/data";
+import { getPricingPlans } from "@/utils/getApiData";
 import SinglePricingPlan from "./SinglePricingPlan";
 import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
 
+import type { PricingPlan } from "@/app/api/types";
+
 export default function PricingPlans() {
+  const [isLoading, setIsLoading] = useState(false);
   const [isMonthly, setIsMonthly] = useState(true);
+  const [pricingPlans, setPricingPlans] = useState<PricingPlan[] | []>([]);
 
   const toggleIsMonthly = () => setIsMonthly((prevState) => !prevState);
+
+  useEffect(() => {
+    setIsLoading(true);
+    getPricingPlans()
+      .then((data) => setPricingPlans(data))
+      .finally(() => setIsLoading(false));
+  }, []);
+
+  if (isLoading) return null;
 
   return (
     <>

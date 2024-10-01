@@ -3,10 +3,15 @@
 import { useState } from "react";
 
 import { renderTestimonial } from "./utils";
-import { testimonials } from "@/data";
 import ArrowRightIcon from "@/icons/ArrowRight";
 
-export default function TestimonialsCarousel() {
+import type { Testimonial } from "@/app/api/types";
+
+type Props = {
+  testimonials: Testimonial[];
+};
+
+export default function TestimonialsCarousel({ testimonials }: Props) {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   const switchToNextTestimonial = () => setCurrentTestimonial((prevState) => (++prevState <= testimonials.length - 1 ? prevState++ : 0));

@@ -1,37 +1,19 @@
 import Image from "next/image";
 
-import type { StaticImageData } from "next/image";
-
 import LinkButton, { linkButtonVariants } from "@/components/LinkButton";
 import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
 
+import type { Course } from "@/app/api/types";
+
 type Props = {
-  course: {
-    id: string;
-    author: string;
-    description: string;
-    images: StaticImageData[];
-    intro: string;
-    level: string;
-    title: string;
-    weeks: number;
-    sections: {
-      id: string;
-      title: string;
-      lessons: {
-        id: string;
-        duration: string;
-        title: string;
-      }[];
-    }[];
-  };
+  course: Course;
 };
 
 export default function Course({ course }: Props) {
   return (
     <div className="p-6 bg-absolute-white rounded-[10px] lg:w-5/12 lg:flex-grow" key={course.id}>
       <div className="h-[172px] lg:h-[266px] relative">
-        <Image fill className="rounded-md" alt={course.title} src={course.images[0].src} style={{ objectFit: "cover" }} sizes="(min-width: 1024px) 40vw, 90vw" />
+        <Image fill className="rounded-md" alt={course.title} src={course.images[0]} style={{ objectFit: "cover" }} sizes="(min-width: 1024px) 40vw, 90vw" />
       </div>
       <div className="flex flex-wrap gap-x-[10px] gap-y-[14px] my-6 lg:flex-nowrap lg:items-center">
         <Typography className="rounded-md border border-white-95 py-2 px-[14px]" color={typographyColors.grey30} variant={typographyVariants.body}>

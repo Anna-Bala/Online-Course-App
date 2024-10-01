@@ -1,7 +1,7 @@
 import Image from "next/image";
 
-import { benefits, courses } from "@/data";
 import { BoltIcon, LinesIcon } from "@/icons";
+import { getBenefits, getCourses } from "@/utils/getApiData";
 import Benefit from "@/components/Benefit";
 import Course from "@/components/Course";
 import FAQ from "@/components/faq/FAQ";
@@ -12,7 +12,10 @@ import PricingPlans from "@/components/pricingPlans/PricingPlans";
 import Testimonials from "@/components/testimonials/Testimonials";
 import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
 
-export default function Home() {
+export default async function Home() {
+  const benefits = await getBenefits();
+  const courses = await getCourses();
+
   return (
     <main className="flex min-h-screen flex-col items-center px-4 lg:px-[80px] 2xl:px-[162px]">
       <div className="w-max relative">

@@ -1,18 +1,12 @@
-import { CheckMarkIcon, CrossIcon } from "@/icons";
 import LinkButton, { linkButtonVariants } from "@/components/LinkButton";
 import PricingPlanFeature from "./PricingPlanFeature";
 import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
 
+import type { PricingPlan } from "@/app/api/types";
+
 type Props = {
   isMonthly: boolean;
-  pricingPlan: {
-    id: string;
-    availableFeatures: string[];
-    isFree: boolean;
-    monthlyPrice: number;
-    unavailableFeatures: string[];
-    yearlyPrice: number;
-  };
+  pricingPlan: PricingPlan;
 };
 
 export default function SinglePricingPlan({ isMonthly, pricingPlan }: Props) {

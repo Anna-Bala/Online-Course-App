@@ -2,14 +2,15 @@ import { notFound } from "next/navigation";
 import classNames from "classnames";
 import Image from "next/image";
 
-import { courses } from "@/data";
+import { getCourses } from "@/utils/getApiData";
 import ClockIcon from "@/icons/Clock";
 import PageHeader from "@/components/PageHeader";
 import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
 
-export default function CourseDetails({ params }: { params: { id: string } }) {
+export default async function CourseDetails({ params }: { params: { id: string } }) {
   const courseId = params.id;
-  const course = courses.find((course) => course.id === courseId);
+  const courses = await getCourses();
+  const course = courses.find((course) => course.id.toString() === courseId);
 
   if (!course) notFound();
 
@@ -17,7 +18,9 @@ export default function CourseDetails({ params }: { params: { id: string } }) {
     <main className="flex min-h-screen flex-col items-center px-4 lg:px-5 2xl:px-[30px]">
       <PageHeader title={course.title} titleClassName="lg:mt-[30px] 2xl:mt-[18px]" info={course.intro} />
       <div className="flex flex-col gap-[50px] w-full lg:px-[60px] 2xl:px-[142px] lg:gap-[80px] 2xl:gap-[100px]">
-        <Image className="rounded-[10px] w-full h-auto" alt="Video placeholder" src={course.images[0]} />
+        <div className="w-full h-[250px] relative min-[520px]:h-[350px] min-[720px]:h-[450px] min-[920px]:h-[550px] lg:h-[600px] xl:h-[650px] 2xl:h-[790px]">
+          <Image fill className="rounded-[10px]" alt={course.title} src={course.images[0]} style={{ objectFit: "cover", objectPosition: "center" }} />
+        </div>
         <div className="flex flex-col gap-5 xl:flex-row xl:flex-wrap 2xl:gap-[30px]">
           {course.sections.map((courseSection, index) => {
             const isLastSection = course.sections.length - 1 === index;
