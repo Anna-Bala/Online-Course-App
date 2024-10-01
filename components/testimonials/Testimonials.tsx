@@ -24,7 +24,7 @@ export default async function Testimonials({ className, showAll, title }: Props)
       </div>
 
       {showAll ? (
-        <div className="flex flex-col gap-5 lg:flex-row lg:flex-wrap 2xl:gap-[30px]">{testimonials.map((testimonial) => renderTestimonial(testimonial, showAll))}</div>
+        <div className="flex flex-col gap-5 lg:flex-row lg:flex-wrap 2xl:gap-[30px]">{testimonials?.map((testimonial) => renderTestimonial(testimonial, showAll))}</div>
       ) : (
         <TestimonialsCarousel testimonials={testimonials} />
       )}

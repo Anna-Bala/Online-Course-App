@@ -12,7 +12,7 @@ export default async function Courses() {
         info="Welcome to our online course page, where you can enhance your skills in design and development. Choose from our carefully curated selection of 10 courses designed to provide you with comprehensive knowledge and practical experience. Explore the courses below and find the perfect fit for your learning journey."
       />
       <div className="flex flex-col gap-5 w-full px-4 lg:px-[60px] 2xl:px-[142px] lg:gap-10 2xl:gap-[50px]">
-        {courses.map((course) => (
+        {courses?.map((course) => (
           <DetailedCourse course={course} key={course.id} />
         ))}
       </div>

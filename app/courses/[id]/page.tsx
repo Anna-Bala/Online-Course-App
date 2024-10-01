@@ -10,7 +10,7 @@ import Typography, { typographyColors, typographyVariants } from "@/components/T
 export default async function CourseDetails({ params }: { params: { id: string } }) {
   const courseId = params.id;
   const courses = await getCourses();
-  const course = courses.find((course) => course.id.toString() === courseId);
+  const course = courses?.find((course) => course.id.toString() === courseId);
 
   if (!course) notFound();
 
