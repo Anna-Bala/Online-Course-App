@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import classNames from "classnames";
 
-import { getPricingPlans } from "@/utils/getApiData";
+// import { getPricingPlans } from "@/utils/getApiData";
 import SinglePricingPlan from "./SinglePricingPlan";
 import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
 
@@ -18,9 +18,9 @@ export default function PricingPlans() {
 
   useEffect(() => {
     setIsLoading(true);
-    getPricingPlans()
-      .then((data) => setPricingPlans(data || []))
-      .finally(() => setIsLoading(false));
+    // getPricingPlans()
+    //   .then((data) => setPricingPlans(data || []))
+    //   .finally(() => setIsLoading(false));
   }, []);
 
   if (isLoading) return null;

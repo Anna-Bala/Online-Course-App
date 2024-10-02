@@ -1,7 +1,9 @@
-import { getTestimonials } from "@/utils/getApiData";
+// import { getTestimonials } from "@/utils/getApiData";
 import { renderTestimonial } from "./utils";
 import TestimonialsCarousel from "./TestimonialsCarousel";
 import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
+
+import type { Testimonial } from "@/app/api/types";
 
 type Props = {
   className?: string;
@@ -10,7 +12,8 @@ type Props = {
 };
 
 export default async function Testimonials({ className, showAll, title }: Props) {
-  const testimonials = await getTestimonials();
+  // const testimonials = await getTestimonials();
+  const testimonials = [] as Testimonial[];
 
   return (
     <section className={className}>

@@ -7,9 +7,12 @@ import ClockIcon from "@/icons/Clock";
 import PageHeader from "@/components/PageHeader";
 import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
 
+import type { Course } from "@/app/api/types";
+
 export default async function CourseDetails({ params }: { params: { id: string } }) {
   const courseId = params.id;
-  const courses = await getCourses();
+  // const courses = await getCourses();
+  const courses = [] as Course[];
   const course = courses?.find((course) => course.id.toString() === courseId);
 
   if (!course) notFound();
