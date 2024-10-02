@@ -12,9 +12,14 @@ import PricingPlans from "@/components/pricingPlans/PricingPlans";
 import Testimonials from "@/components/testimonials/Testimonials";
 import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
 
+import type { Benefit as BenefitType, Course as CoueseType } from "./api/types";
+
 export default async function Home() {
-  const benefits = await getBenefits();
-  const courses = await getCourses();
+  // const benefits = await getBenefits();
+  // const courses = await getCourses();
+
+  const benefits = [] as BenefitType[];
+  const courses = [] as CoueseType[];
 
   return (
     <main className="flex min-h-screen flex-col items-center px-4 lg:px-[80px] 2xl:px-[162px]">
@@ -58,7 +63,7 @@ export default async function Home() {
         title="Benefits"
         description="Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget elit id imperdiet et. Cras eu sit dignissim lorem nibh et. Ac cum eget habitasse in velit fringilla feugiat senectus in."
       >
-        {benefits.map((benefit, index) => (
+        {benefits?.map((benefit, index) => (
           <Benefit benefit={benefit} index={index} key={benefit.id} />
         ))}
       </HomePageSection>
@@ -68,7 +73,7 @@ export default async function Home() {
         description="Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget elit id imperdiet et. Cras eu sit dignissim lorem nibh et. Ac cum eget habitasse in velit fringilla feugiat senectus in."
         href="/courses"
       >
-        {courses.map((course) => (
+        {courses?.map((course) => (
           <Course course={course} key={course.id} />
         ))}
       </HomePageSection>

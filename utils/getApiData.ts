@@ -5,6 +5,8 @@ import { BASE_API_URL } from "./constants";
 import type { Benefit, Course, PricingPlan, Testimonial } from "@/app/api/types";
 
 export async function getBenefits() {
+  if (!BASE_API_URL) return;
+
   const response = await fetch(`${BASE_API_URL}/api/benefits`);
   const benefits: Benefit[] | null = await response.json();
 
@@ -13,6 +15,8 @@ export async function getBenefits() {
 }
 
 export async function getCourses() {
+  if (!BASE_API_URL) return;
+
   const response = await fetch(`${BASE_API_URL}/api/courses`);
   const courses: Course[] | null = await response.json();
 
@@ -21,6 +25,8 @@ export async function getCourses() {
 }
 
 export async function getTestimonials() {
+  if (!BASE_API_URL) return;
+
   const response = await fetch(`${BASE_API_URL}/api/testimonials`, { cache: "no-store" });
   const testimonials: Testimonial[] | null = await response.json();
 
@@ -29,6 +35,8 @@ export async function getTestimonials() {
 }
 
 export async function getPricingPlans() {
+  if (!BASE_API_URL) return;
+
   const response = await fetch(`${BASE_API_URL}/api/pricing-plans`);
   const pricingPlans: PricingPlan[] | null = await response.json();
 
