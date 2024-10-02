@@ -19,7 +19,7 @@ export default function PricingPlans() {
   useEffect(() => {
     setIsLoading(true);
     getPricingPlans()
-      .then((data) => setPricingPlans(data))
+      .then((data) => setPricingPlans(data || []))
       .finally(() => setIsLoading(false));
   }, []);
 
