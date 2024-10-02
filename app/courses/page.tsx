@@ -2,11 +2,8 @@ import { getCourses } from "@/utils/getApiData";
 import DetailedCourse from "@/components/DetailedCourse";
 import PageHeader from "@/components/PageHeader";
 
-import type { Course } from "../api/types";
-
 export default async function Courses() {
-  // const courses = await getCourses();
-  const courses = [] as Course[];
+  const courses = await getCourses();
 
   return (
     <main className="flex min-h-screen flex-col items-center px-4 lg:px-5 2xl:px-[30px]">
