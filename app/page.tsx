@@ -12,14 +12,9 @@ import PricingPlans from "@/components/pricingPlans/PricingPlans";
 import Testimonials from "@/components/testimonials/Testimonials";
 import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
 
-import type { Benefit as BenefitType, Course as CoueseType } from "./api/types";
-
 export default async function Home() {
-  // const benefits = await getBenefits();
-  // const courses = await getCourses();
-
-  const benefits = [] as BenefitType[];
-  const courses = [] as CoueseType[];
+  const benefits = await getBenefits();
+  const courses = await getCourses();
 
   return (
     <main className="flex min-h-screen flex-col items-center px-4 lg:px-[80px] 2xl:px-[162px]">
