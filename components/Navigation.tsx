@@ -1,5 +1,6 @@
 "use client";
 
+import { signOut } from "next-auth/react";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import classNames from "classnames";
@@ -49,7 +50,11 @@ const credentialsNavigationItems = [
   },
 ];
 
-export default function Navigation() {
+type Props = {
+  isActiveSession: boolean;
+};
+
+export default function Navigation({ isActiveSession }: Props) {
   const [isMobileNavigationOpen, setIsMobileNavigationOpen] = useState(false);
 
   const toggleIsMobileNavigationOpen = () => setIsMobileNavigationOpen((prevState) => !prevState);
@@ -91,13 +96,19 @@ export default function Navigation() {
             ))}
           </div>
           <div className="flex ml-auto">
-            {credentialsNavigationItems.map(({ href, name, variant }) => (
-              <li key={href}>
-                <LinkButton className="py-3 2xl:py-[14px]" variant={variant} href={href}>
-                  {name}
-                </LinkButton>
-              </li>
-            ))}
+            {!isActiveSession ? (
+              credentialsNavigationItems.map(({ href, name, variant }) => (
+                <li key={href}>
+                  <LinkButton className="py-3 2xl:py-[14px]" variant={variant} href={href}>
+                    {name}
+                  </LinkButton>
+                </li>
+              ))
+            ) : (
+              <button className="text-grey-15 hover:bg-white-95 text-[14px] font-medium rounded-md py-[14px] px-5 lg:mx-auto 2xl:text-[18px]" onClick={() => signOut()}>
+                Logout
+              </button>
+            )}
             {isMobile && (
               <button className="ml-5" onClick={toggleIsMobileNavigationOpen}>
                 <NavigationIcon size={34} />

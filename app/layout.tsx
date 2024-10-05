@@ -1,5 +1,7 @@
-import type { Metadata } from "next";
 import { Be_Vietnam_Pro } from "next/font/google";
+import { getServerSession } from "next-auth";
+
+import type { Metadata } from "next";
 
 import Footer from "@/components/footer/Footer";
 import Navigation from "@/components/Navigation";
@@ -12,16 +14,19 @@ export const metadata: Metadata = {
   description: "Online courses platform",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const activeSession = await getServerSession();
+  const isActiveSession = !!activeSession;
+
   return (
     <html lang="en">
       <body className={`bg-white-97 lg:pt-5 ${be_vietnam_pro.className}`}>
         <>
-          <Navigation />
+          <Navigation isActiveSession={isActiveSession} />
           {children}
           <Footer />
         </>
