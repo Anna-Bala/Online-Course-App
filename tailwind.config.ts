@@ -29,6 +29,9 @@ const config: Config = {
           97: "#FFF9F0",
           99: "#FFFDFA",
         },
+        red: {
+          50: "#ff6666",
+        },
         white: {
           90: "#E4E4E7",
           95: "#F1F1F3",

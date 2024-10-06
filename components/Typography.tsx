@@ -15,6 +15,7 @@ type Props = {
     | "grey40"
     | "grey60"
     | "grey70"
+    | "red50"
     | "orange50"
     | "orange70"
     | "orange75"
@@ -41,6 +42,7 @@ const colorClassNames = {
   grey40: "text-grey-40",
   grey60: "text-grey-60",
   grey70: "text-grey-70",
+  red50: "text-red-50",
   orange50: "text-orange-50",
   orange70: "text-orange-70",
   orange75: "text-orange-75",
@@ -71,6 +73,7 @@ const typographyColors = {
   grey40: "grey40",
   grey60: "grey60",
   grey70: "grey70",
+  red50: "red50",
   orange50: "orange50",
   orange70: "orange70",
   orange75: "orange75",
