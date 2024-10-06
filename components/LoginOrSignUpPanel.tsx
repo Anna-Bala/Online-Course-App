@@ -49,6 +49,7 @@ export default function LoginOrSignUpPanel({ isSignUp }: Props) {
       return false;
     }
 
+    setValidationErrors(null);
     return true;
   };
 
