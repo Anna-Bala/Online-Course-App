@@ -9,12 +9,12 @@ export async function POST(request: Request) {
 
     const hashedPassword = await hash(password, 10);
 
-    const databaseResponse = await sql`
+    await sql`
     INSERT INTO users (full_name, email, password) VALUES
     (${fullName}, ${email}, ${hashedPassword});`;
 
-    // todo - handle database response
-  } catch (error) {}
-
-  return NextResponse.json({ message: "success" });
+    return NextResponse.json(null, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ error }, { status: 400 });
+  }
 }

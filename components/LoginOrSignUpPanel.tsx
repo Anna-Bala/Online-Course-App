@@ -2,6 +2,7 @@
 
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import Link from "next/link";
 
 import type { FormEvent } from "react";
@@ -15,12 +16,16 @@ type Props = {
 };
 
 export default function LoginOrSignUpPanel({ isSignUp }: Props) {
+  const [error, setError] = useState<string | null>(null);
+
   const router = useRouter();
 
-  const handleRegister = (event: FormEvent<HTMLFormElement>) => {
+  const handleRegister = async (event: FormEvent<HTMLFormElement>) => {
+    setError(null);
     event.preventDefault();
+
     const formData = new FormData(event.currentTarget);
-    const signUpResponse = fetch("/api/auth/sign-up", {
+    const signUpResponse = await fetch("/api/auth/sign-up", {
       method: "POST",
       body: JSON.stringify({
         fullName: formData.get("fullName"),
@@ -28,6 +33,15 @@ export default function LoginOrSignUpPanel({ isSignUp }: Props) {
         password: formData.get("password"),
       }),
     });
+
+    const signUpResponseBody = await signUpResponse.json();
+
+    if (!!signUpResponseBody.error) {
+      const isEmailAlreadyInUse = signUpResponseBody.error.constraint === "unique_email";
+
+      if (isEmailAlreadyInUse) setError("The email you have provided is already in use. Please try to login or send us a message through the contact page.");
+      else setError("Something went wrong while creating an account, please try again.");
+    }
   };
 
   const handleLogin = async (event: FormEvent<HTMLFormElement>) => {
@@ -77,6 +91,11 @@ export default function LoginOrSignUpPanel({ isSignUp }: Props) {
               />
             ) : (
               <Checkbox label="Remember Me" name="shouldRememberUser" />
+            )}
+            {!!error && (
+              <Typography className="text-center" color={typographyColors.orange50} variant={typographyVariants.body}>
+                {error}
+              </Typography>
             )}
             <button className="w-full text-absolute-white text-[14px] font-medium rounded-md bg-orange-50 hover:bg-orange-70 py-[14px] px-5 lg:mx-auto 2xl:text-[18px]" type="submit">
               {isSignUp ? "Sign Up" : "Login"}
