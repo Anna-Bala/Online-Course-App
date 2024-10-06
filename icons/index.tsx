@@ -1,4 +1,5 @@
 export { default as ArrowRightIcon } from "./ArrowRight";
+export { default as AvatarIcon } from "./Avatar";
 export { default as BatteryIcon } from "./Battery";
 export { default as BoltIcon } from "./Bolt";
 export { default as BookIcon } from "./Book";

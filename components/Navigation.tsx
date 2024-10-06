@@ -6,9 +6,8 @@ import { useState } from "react";
 import classNames from "classnames";
 import Link from "next/link";
 
-import ArrowRightIcon from "@/icons/ArrowRight";
+import { ArrowRightIcon, AvatarIcon, LogoIcon } from "@/icons";
 import LinkButton, { linkButtonVariants } from "./LinkButton";
-import LogoIcon from "@/icons/Logo";
 import NavigationIcon from "@/icons/Navigation";
 import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
 import useGetWindowSize from "@/hooks/useGetWindowSize";
@@ -105,9 +104,17 @@ export default function Navigation({ isActiveSession }: Props) {
                 </li>
               ))
             ) : (
-              <button className="text-grey-15 hover:bg-white-95 text-[14px] font-medium rounded-md py-[14px] px-5 lg:mx-auto 2xl:text-[18px]" onClick={() => signOut()}>
-                Logout
-              </button>
+              <div className="flex items-center gap-4">
+                <button
+                  className="text-grey-15 hover:bg-white-95 text-[14px] font-medium rounded-md py-[14px] px-5 transition-colors duration-300 ease-in-out lg:mx-auto 2xl:text-[18px]"
+                  onClick={() => signOut()}
+                >
+                  Logout
+                </button>
+                <Link className="p-3 bg-white-97 border border-white-90 rounded-full transition-colors duration-300 ease-in-out hover:bg-white-95" href="/profile">
+                  <AvatarIcon size={36} />
+                </Link>
+              </div>
             )}
             {isMobile && (
               <button className="ml-5" onClick={toggleIsMobileNavigationOpen}>
