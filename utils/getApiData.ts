@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import { getServerSession } from "next-auth";
 
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { BASE_API_URL } from "./constants";
+import authOptions from "@/app/lib/auth";
 
 import type { Benefit, Course, PricingPlan, Testimonial } from "@/app/api/types";
 
