@@ -3,7 +3,9 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { compare } from "bcrypt";
 import { sql } from "@vercel/postgres";
 
-const handler = NextAuth({
+import type { NextAuthOptions } from "next-auth";
+
+export const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",
   },
@@ -34,6 +36,14 @@ const handler = NextAuth({
       },
     }),
   ],
-});
+  callbacks: {
+    session: async ({ session, token }) => {
+      session.user.id = token.sub as string;
+      return session;
+    },
+  },
+};
+
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };
