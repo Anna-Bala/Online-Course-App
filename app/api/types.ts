@@ -26,6 +26,7 @@ export type Course = {
   title: string;
   weeks: number;
   sections: CourseSection[];
+  isLiked: boolean;
 };
 
 export type Lesson = {

@@ -2,7 +2,10 @@ import { sql } from "@vercel/postgres";
 
 import type { Course, Lesson, Section } from "../types";
 
-export async function GET() {
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const userId = searchParams.get("userId");
+
   const client = await sql.connect();
 
   const { rows } = await client.sql`
@@ -32,6 +35,9 @@ export async function GET() {
     ORDER BY 
         c.id, cs.id, cl.id;`;
 
+  const likedCoursesResponse = !!userId ? await client.sql`SELECT course_id as "courseId" FROM users_courses WHERE user_id=${userId};` : null;
+  const likedCoursesRows = likedCoursesResponse?.rows;
+
   client.release();
 
   const result: Course[] = [];
@@ -50,6 +56,7 @@ export async function GET() {
         title: courseTitle,
         weeks,
         sections: [],
+        isLiked: likedCoursesRows ? likedCoursesRows?.filter((row) => row.courseId === courseId).length > 0 : false,
       };
       result.push(foundCourse);
     }

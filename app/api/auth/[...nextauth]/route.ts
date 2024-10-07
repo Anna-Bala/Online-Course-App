@@ -1,9 +1,10 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { compare } from "bcrypt";
 import { sql } from "@vercel/postgres";
 
 import type { NextAuthOptions } from "next-auth";
+
+import { comparePasswords } from "@/utils/comparePasswords";
 
 export const authOptions: NextAuthOptions = {
   session: {
@@ -22,7 +23,7 @@ export const authOptions: NextAuthOptions = {
 
         const user = databaseResponse.rows[0];
 
-        const isPasswordCorrect = await compare(credentials?.password || "", user.password);
+        const isPasswordCorrect = await comparePasswords({ credentialsPassword: credentials?.password || "", userPassword: user.password });
 
         if (isPasswordCorrect) {
           return {

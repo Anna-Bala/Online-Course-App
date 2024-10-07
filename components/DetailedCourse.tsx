@@ -1,5 +1,8 @@
+import { getServerSession } from "next-auth";
 import Image from "next/image";
 
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import DetailedCourseHeader from "@/components/DetailedCourseHeader";
 import LinkButton, { linkButtonVariants } from "@/components/LinkButton";
 import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
 
@@ -9,14 +12,14 @@ type Props = {
   course: Course;
 };
 
-export default function DetailedCourse({ course }: Props) {
+export default async function DetailedCourse({ course }: Props) {
+  const activeSession = await getServerSession(authOptions);
+
   return (
     <div className="p-6 bg-absolute-white rounded-lg w-full lg:p-10 lg:rounded-[10px] 2xl:p-[50px] 2xl:rounded-xl" key={course.id}>
       <div className="flex flex-col lg:flex-row lg:gap-x-[50px] lg:items-center">
         <div className="mb-5 lg:mb-0">
-          <Typography className="text-lg mb-1 lg:text-xl lg:mb-[6px] 2xl:text-2xl 2xl:mb-[10px]" color={typographyColors.grey15} variant={typographyVariants.subtitle}>
-            {course.title}
-          </Typography>
+          <DetailedCourseHeader activeSession={activeSession} courseId={course.id} courseTitle={course.title} isCourseLiked={course.isLiked} />
           <Typography color={typographyColors.grey35} variant={typographyVariants.body}>
             {course.description}
           </Typography>

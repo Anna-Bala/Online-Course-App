@@ -8,6 +8,7 @@ export { default as ClockIcon } from "./Clock";
 export { default as CrossIcon } from "./Cross";
 export { default as CrownIcon } from "./Crown";
 export { default as FacebookIcon } from "./Facebook";
+export { default as HeartIcon } from "./Heart";
 export { default as LampIcon } from "./Lamp";
 export { default as LinesIcon } from "./Lines";
 export { default as LinkedInIcon } from "./LinkedIn";

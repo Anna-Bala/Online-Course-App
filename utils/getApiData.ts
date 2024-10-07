@@ -1,5 +1,7 @@
 import { notFound } from "next/navigation";
+import { getServerSession } from "next-auth";
 
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { BASE_API_URL } from "./constants";
 
 import type { Benefit, Course, PricingPlan, Testimonial } from "@/app/api/types";
@@ -17,7 +19,9 @@ export async function getBenefits() {
 export async function getCourses() {
   if (!BASE_API_URL) return;
 
-  const response = await fetch(`${BASE_API_URL}/api/courses`);
+  const activeSession = await getServerSession(authOptions);
+
+  const response = await fetch(`${BASE_API_URL}/api/courses?userId=${activeSession?.user?.id || ""}`);
   const courses: Course[] | null = await response.json();
 
   if (!courses) notFound();

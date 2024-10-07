@@ -1,3 +1,5 @@
+"use server";
+
 import { hash } from "bcrypt";
 import { NextResponse } from "next/server";
 import { sql } from "@vercel/postgres";
@@ -5,7 +7,6 @@ import { sql } from "@vercel/postgres";
 export async function POST(request: Request) {
   try {
     const { fullName, email, password } = await request.json();
-    // todo - validate email and password
 
     const hashedPassword = await hash(password, 10);
 
