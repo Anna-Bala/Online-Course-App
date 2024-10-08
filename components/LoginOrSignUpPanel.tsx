@@ -8,7 +8,7 @@ import Link from "next/link";
 
 import type { FormEvent } from "react";
 
-import { Checkbox, PasswordInput, TextInput } from "@/components/form";
+import { PasswordInput, TextInput } from "@/components/form";
 import { loginValidationSchema, signUpValidationSchema } from "@/utils/validationSchemas";
 import formatValidationErrors from "@/utils/formatValidationErrors";
 import LinkIcon from "@/icons/Link";
