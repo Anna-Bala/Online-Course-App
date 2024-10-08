@@ -16,6 +16,7 @@ export { default as LinkIcon } from "./Link";
 export { default as LocationIcon } from "./Location";
 export { default as LogoGreyIcon } from "./LogoGrey";
 export { default as LogoIcon } from "./Logo";
+export { default as LogoutIcon } from "./Logout";
 export { default as MailIcon } from "./Mail";
 export { default as MasksIcon } from "./Masks";
 export { default as MedalIcon } from "./Medal";
