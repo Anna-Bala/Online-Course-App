@@ -8,6 +8,7 @@ import type { FormEvent } from "react";
 import { contactValidationSchema } from "@/utils/validationSchemas";
 import formatValidationErrors from "@/utils/formatValidationErrors";
 import TextInput from "@/components/form/TextInput";
+import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
 
 export default function ContactForm() {
   const [error, setError] = useState<string | null>(null);
@@ -38,6 +39,7 @@ export default function ContactForm() {
   };
 
   const handleContactFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    setError(null);
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const formDataFormatted = formatFormData(formData);
@@ -45,6 +47,17 @@ export default function ContactForm() {
     const isValidationCorrect = handleContactFormValidation(formDataFormatted);
 
     if (!isValidationCorrect) return;
+
+    const contactResponse = await fetch("/api/contact", {
+      method: "POST",
+      body: JSON.stringify(formDataFormatted),
+    });
+
+    const contactResponseBody = await contactResponse.json();
+
+    if (!!contactResponseBody?.error) {
+      setError("Something went wrong while sending your message, please try again.");
+    }
   };
 
   const handleContactFormChange = async (event: FormEvent<HTMLFormElement>) => {
@@ -66,6 +79,11 @@ export default function ContactForm() {
       <TextInput error={validationErrors?.["phone"]} className="lg:w-5/12 lg:flex-grow" label="Phone" labelClassName="mb-3 2xl:mb-4" name="phone" placeholder="Enter Phone Number" type="tel" />
       <TextInput error={validationErrors?.["subject"]} className="lg:w-full" label="Subject" labelClassName="mb-3 2xl:mb-4" name="subject" placeholder="Enter your Subject" />
       <TextInput error={validationErrors?.["message"]} className="lg:w-full lg:mt-4" label="Message" labelClassName="mb-3 2xl:mb-4" name="message" placeholder="Enter your Message here..." rows={5} />
+      {!!error && (
+        <Typography className="text-center" color={typographyColors.orange50} variant={typographyVariants.body}>
+          {error}
+        </Typography>
+      )}
       <button className="text-absolute-white text-[14px] font-medium rounded-md bg-orange-50 hover:bg-orange-70 py-[14px] px-5 mt-[10px] lg:mx-auto 2xl:mt-5 2xl:text-[18px]" type="submit">
         Send Your Message
       </button>
