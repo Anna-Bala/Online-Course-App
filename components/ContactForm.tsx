@@ -6,22 +6,26 @@ import { z } from "zod";
 import type { FormEvent } from "react";
 
 import { contactValidationSchema } from "@/utils/validationSchemas";
+import { createContactFormEntry } from "@/utils/handleApiChanges";
 import formatValidationErrors from "@/utils/formatValidationErrors";
 import TextInput from "@/components/form/TextInput";
 import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
+
+import type { CreateContactFormData } from "@/utils/handleApiChanges";
 
 export default function ContactForm() {
   const [error, setError] = useState<string | null>(null);
   const [validationErrors, setValidationErrors] = useState<{ [key: string]: string } | null>(null);
 
-  const formatFormData = (unformattedData: FormData) => ({
-    firstName: unformattedData.get("firstName"),
-    lastName: unformattedData.get("lastName"),
-    email: unformattedData.get("email"),
-    phone: unformattedData.get("phone"),
-    subject: unformattedData.get("subject"),
-    message: unformattedData.get("message"),
-  });
+  const formatFormData = (unformattedData: FormData) =>
+    ({
+      firstName: unformattedData.get("firstName"),
+      lastName: unformattedData.get("lastName"),
+      email: unformattedData.get("email"),
+      phone: unformattedData.get("phone"),
+      subject: unformattedData.get("subject"),
+      message: unformattedData.get("message"),
+    } as CreateContactFormData);
 
   const handleContactFormValidation = (formData: object) => {
     try {
@@ -48,12 +52,8 @@ export default function ContactForm() {
 
     if (!isValidationCorrect) return;
 
-    const contactResponse = await fetch("/api/contact", {
-      method: "POST",
-      body: JSON.stringify(formDataFormatted),
-    });
-
-    const contactResponseBody = await contactResponse.json();
+    const contactResponse = await createContactFormEntry({ formData: formDataFormatted });
+    const contactResponseBody = await contactResponse?.json();
 
     if (!!contactResponseBody?.error) {
       setError("Something went wrong while sending your message, please try again.");

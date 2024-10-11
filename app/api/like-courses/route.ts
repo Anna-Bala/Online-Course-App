@@ -19,6 +19,8 @@ export async function DELETE(request: Request) {
   try {
     const { courseId, userId } = await request.json();
 
+    if (!courseId || !userId) return NextResponse.json(null, { status: 400 });
+
     const sqlResponse = await sql`
       DELETE FROM users_courses WHERE course_id=${courseId} AND user_id=${userId};`;
 

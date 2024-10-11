@@ -28,6 +28,17 @@ export async function getCourses() {
   return courses;
 }
 
+export async function getLikedCourses() {
+  if (!BASE_API_URL) return;
+
+  const activeSession = await getServerSession(authOptions);
+
+  const response = await fetch(`${BASE_API_URL}/api/liked-courses?userId=${activeSession?.user?.id || ""}`, { cache: "no-store" });
+  const likedCourses: Course[] | null = await response.json();
+
+  return likedCourses;
+}
+
 export async function getTestimonials() {
   if (!BASE_API_URL) return;
 

@@ -1,6 +1,6 @@
 import type { Props } from "./types";
 
-export default function Heart({ fill = "#1A1A1A", size }: Props) {
+export default function HeartOutlined({ fill = "#1A1A1A", size }: Props) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill={fill} xmlns="http://www.w3.org/2000/svg">
       <path
