@@ -1,15 +1,13 @@
 "use client";
 
-import { signOut } from "next-auth/react";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import classNames from "classnames";
 import Link from "next/link";
 
 import { AvatarIcon, LogoIcon } from "@/icons";
 import LinkButton, { linkButtonVariants } from "./LinkButton";
 import LogoutButton from "@/components/LogoutButton";
-import NavigationIcon from "@/icons/Navigation";
 import useGetWindowSize from "@/hooks/useGetWindowSize";
 
 const contentNavigationItems = [
@@ -55,14 +53,26 @@ type Props = {
 
 export default function Navigation({ isActiveSession }: Props) {
   const [isMobileNavigationOpen, setIsMobileNavigationOpen] = useState(false);
+  const menuButton = useRef<HTMLButtonElement | null>(null);
 
-  const toggleIsMobileNavigationOpen = () => setIsMobileNavigationOpen((prevState) => !prevState);
+  const toggleIsMobileNavigationOpen = () => {
+    setIsMobileNavigationOpen((prevState) => !prevState);
+    const spans = menuButton?.current?.querySelectorAll("span");
+
+    spans?.[0].classList.toggle("rotate-45");
+    spans?.[0].classList.toggle("translate-y-2");
+    spans?.[1].classList.toggle("opacity-0");
+    spans?.[2].classList.toggle("-rotate-45");
+    spans?.[2].classList.toggle("-translate-y-2");
+  };
 
   const pathname = usePathname();
   const { isMobile, isLg, is2Xl } = useGetWindowSize();
 
   return (
-    <header className="flex flex-col items-center justify-between px-4 pt-5 mb-[50px] lg:px-5 lg:pt-0 lg:mb-[80px] 2xl:mb-[109px]">
+    <header
+      className={classNames("flex flex-col items-center justify-between bg-white-97 px-4 pt-5 mb-[50px] lg:px-5 lg:pt-0 lg:mb-[80px] 2xl:mb-[109px]", { "sticky top-0 z-50": isMobileNavigationOpen })}
+    >
       <nav className="w-full border-b border-white-95 pb-[14px]">
         <ul className="flex items-center gap-1 lg:px-[60px] 2xl:px-[132px]">
           <Link className="mr-[46px]" href="/">
@@ -70,7 +80,7 @@ export default function Navigation({ isActiveSession }: Props) {
           </Link>
           <div
             className={classNames("flex gap-1", {
-              "flex-col items-end absolute mt-[150px] ml-auto bg-absolute-white w-full h-max p-6 rounded-l-lg z-50 inset-0 transform transition-transform duration-300": isMobile,
+              "flex-col items-end fixed ml-auto bg-absolute-white w-full h-max p-6 rounded-l-lg z-50 inset-0 top-[84px] transform transition-transform duration-300": isMobile,
               "items-center": !isMobile,
               "translate-x-full": !isMobileNavigationOpen && isMobile,
               "translate-x-0": isMobileNavigationOpen,
@@ -92,7 +102,7 @@ export default function Navigation({ isActiveSession }: Props) {
               {isMobile && isActiveSession && <LogoutButton />}
             </>
           </div>
-          <div className="flex ml-auto">
+          <div className="flex items-center ml-auto">
             {!isActiveSession ? (
               credentialsNavigationItems.map(({ href, name, variant }) => (
                 <li key={href}>
@@ -110,8 +120,10 @@ export default function Navigation({ isActiveSession }: Props) {
               </div>
             )}
             {isMobile && (
-              <button className="ml-5" onClick={toggleIsMobileNavigationOpen}>
-                <NavigationIcon size={34} />
+              <button className="ml-5 relative flex flex-col justify-around w-6 h-6" onClick={toggleIsMobileNavigationOpen} ref={menuButton}>
+                <span className="block h-[2px] w-full bg-grey-10 rounded transition-all duration-300 ease-in-out transform"></span>
+                <span className="block h-[2px] w-full bg-grey-10 rounded transition-all duration-300 ease-in-out transform"></span>
+                <span className="block h-[2px] w-full bg-grey-10 rounded transition-all duration-300 ease-in-out transform"></span>
               </button>
             )}
           </div>

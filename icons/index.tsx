@@ -20,7 +20,6 @@ export { default as LogoutIcon } from "./Logout";
 export { default as MailIcon } from "./Mail";
 export { default as MasksIcon } from "./Masks";
 export { default as MedalIcon } from "./Medal";
-export { default as NavigationIcon } from "./Navigation";
 export { default as PhoneIcon } from "./Phone";
 export { default as PlusIcon } from "./Plus";
 export { default as PuzzleIcon } from "./Puzzle";
