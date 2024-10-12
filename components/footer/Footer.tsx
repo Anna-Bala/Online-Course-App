@@ -1,9 +1,10 @@
 import Link from "next/link";
 
 import { LocationIcon, MailIcon, PhoneIcon } from "@/icons";
+import { skillbridgeEmails, skillbridgeGoogleMapsUrl, skillbridgePhoneNumbers } from "@/app/constants";
 import Logo from "./Logo";
 import SocialProfiles from "./SocialProfiles";
-import Typography, { typographyColors, typographyVariants } from "../Typography";
+import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
 
 export default function Footer() {
   return (
@@ -11,19 +12,19 @@ export default function Footer() {
       <div className="flex flex-col gap-[30px]">
         <Logo />
         <div className="flex flex-col gap-3">
-          <a className="flex items-center gap-[6px]" href="mailto:hello@skillbridge.com">
+          <a className="flex items-center gap-[6px]" href={`mailto:${skillbridgeEmails.main}`}>
             <MailIcon />
             <Typography variant={typographyVariants.body} htmlTag="span" color={typographyColors.grey15}>
-              hello@skillbridge.com
+              {skillbridgeEmails.main}
             </Typography>
           </a>
-          <a className="flex items-center gap-[6px]" href="tel:+9191813232309">
+          <a className="flex items-center gap-[6px]" href={`tel:${skillbridgePhoneNumbers.main.replaceAll(/\s/g, "")}`}>
             <PhoneIcon />
             <Typography variant={typographyVariants.body} htmlTag="span" color={typographyColors.grey15}>
-              +91 91813 23 2309
+              {skillbridgePhoneNumbers.main}
             </Typography>
           </a>
-          <a className="flex items-center gap-[6px]" href="https://earth.google.com/web/@54.81903745,56.24340367,-7608.18697546a,22347029.54528332d,35y,39.37498015h,0t,0r/data=OgMKATA">
+          <a className="flex items-center gap-[6px]" href={skillbridgeGoogleMapsUrl} target="_blank">
             <LocationIcon />
             <Typography variant={typographyVariants.body} htmlTag="span" color={typographyColors.grey15}>
               Somewhere in the World
@@ -85,7 +86,7 @@ export default function Footer() {
       </div>
       <hr className="border-white-95 my-5 w-full lg:my-[50px]" />
       <Typography className="text-center w-full" variant={typographyVariants.body} color={typographyColors.grey40}>
-        &copy; 2023 Skillbridge. All rights reserved.
+        &copy; 2024 Skillbridge. All rights reserved.
       </Typography>
     </footer>
   );

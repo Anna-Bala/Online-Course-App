@@ -1,6 +1,7 @@
+import { skillbridgeEmails } from "@/app/constants";
+import faqData from "./faqData";
 import SingleQuestion from "./SingleQuestion";
 import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
-import faqData from "./faqData";
 
 export default function FAQ() {
   return (
@@ -11,9 +12,9 @@ export default function FAQ() {
         </Typography>
         <Typography color={typographyColors.grey20} variant={typographyVariants.body}>
           Still you have any questions? Contact our Team via&nbsp;
-          <a href="mailto:support@skillbridge.com">
+          <a href={`mailto:${skillbridgeEmails.support}`}>
             <Typography variant={typographyVariants.body} htmlTag="span" color={typographyColors.grey20}>
-              support@skillbridge.com
+              {skillbridgeEmails.support}
             </Typography>
           </a>
         </Typography>

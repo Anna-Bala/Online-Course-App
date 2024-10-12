@@ -1,7 +1,8 @@
 "use server";
 
-import { BASE_API_URL } from "./constants";
 import { revalidatePath } from "next/cache";
+
+import { BASE_API_URL } from "./constants";
 
 type LikeCourseArguments = { courseId: number; revalidatePathUrl?: string; userId?: string };
 export type CreateContactFormData = {

@@ -8,8 +8,8 @@ import Link from "next/link";
 
 import type { FormEvent } from "react";
 
-import { PasswordInput, TextInput } from "@/components/form";
 import { loginValidationSchema, signUpValidationSchema } from "@/utils/validationSchemas";
+import { PasswordInput, TextInput } from "@/components/form";
 import formatValidationErrors from "@/utils/formatValidationErrors";
 import LinkIcon from "@/icons/Link";
 import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
@@ -174,7 +174,7 @@ export default function LoginOrSignUpPanel({ isSignUp }: Props) {
             </Typography>
           ) : (
             <Typography className="text-center" color={typographyColors.grey15} variant={typographyVariants.body}>
-              Don’t have an account?&nbsp;
+              Don&apos;t have an account?&nbsp;
               <Link className="font-medium underline" href="/sign-up">
                 Sign Up
                 <LinkIcon className="inline-block ml-[6px]" size={20} />

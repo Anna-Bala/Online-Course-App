@@ -7,7 +7,9 @@ import ClockIcon from "@/icons/Clock";
 import PageHeader from "@/components/PageHeader";
 import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
 
-export default async function CourseDetails({ params }: { params: { id: string } }) {
+type Props = { params: { id: string } };
+
+export default async function CourseDetails({ params }: Props) {
   const courseId = params.id;
   const courses = await getCourses();
   const course = courses?.find((course) => course.id.toString() === courseId);

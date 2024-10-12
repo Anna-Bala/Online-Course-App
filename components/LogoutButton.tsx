@@ -1,7 +1,8 @@
 "use client";
 
-import { LogoutIcon } from "@/icons";
 import { signOut } from "next-auth/react";
+
+import LogoutIcon from "@/icons/Logout";
 import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
 
 export default function LogoutButton() {

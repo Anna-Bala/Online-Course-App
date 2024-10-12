@@ -1,5 +1,5 @@
-import CredentialsProvider from "next-auth/providers/credentials";
 import { sql } from "@vercel/postgres";
+import CredentialsProvider from "next-auth/providers/credentials";
 
 import type { NextAuthOptions } from "next-auth";
 

@@ -10,8 +10,10 @@ type Item = {
   title: string;
 };
 
+type RenderSectionArguments = { info: string; items: Item[]; title: string };
+
 export default function AboutUs() {
-  function renderSection({ info, items, title }: { info: string; items: Item[]; title: string }) {
+  function renderSection({ info, items, title }: RenderSectionArguments) {
     return (
       <section>
         <Typography className="!font-medium mb-[6px] !text-2xl lg:!text-3xl 2xl:!text-5xl" color={typographyColors.grey20} variant={typographyVariants.h3}>

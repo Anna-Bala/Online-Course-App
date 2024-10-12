@@ -1,17 +1,20 @@
 import { LocationIcon, MailIcon, PhoneIcon } from "@/icons";
+import { skillbridgeEmails, skillbridgeGoogleMapsUrl, skillbridgePhoneNumbers } from "@/app/constants";
 import { socialLinks } from "@/app/constants";
 import ContactForm from "@/components/ContactForm";
 import PageHeader from "@/components/PageHeader";
 import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
 
+type RenderContactItemArguments = { href: string; Icon: ({ fill, size }: { fill?: string; size: number }) => JSX.Element; text: string };
+
 export default function Contact() {
-  function renderContactItem({ href, Icon, text }: { href: string; Icon: ({ fill, size }: { fill?: string; size: number }) => JSX.Element; text: string }) {
+  function renderContactItem({ href, Icon, text }: RenderContactItemArguments) {
     return (
       <div className="flex flex-col items-center p-[30px] gap-[14px] bg-white-99 border border-white-95 rounded-md">
-        <a className="p-3 w-max bg-white-97 border border-white-95 rounded-md" href={href}>
+        <a className="p-3 w-max bg-white-97 border border-white-95 rounded-md" href={href} target="_blank">
           <Icon size={20} />
         </a>
-        <Typography className="text-center" variant={typographyVariants.body} htmlTag="a" href={href} color={typographyColors.grey30}>
+        <Typography className="text-center" color={typographyColors.grey30} href={href} htmlTag="a" variant={typographyVariants.body}>
           {text}
         </Typography>
       </div>
@@ -29,10 +32,10 @@ export default function Contact() {
         <div className="flex flex-col bg-absolute-white rounded-xl lg:flex-row lg:justify-between">
           <ContactForm />
           <div className="flex flex-col gap-5 p-[30px] border-t border-white-97 lg:p-0 lg:border-t-0 lg:px-[60px] lg:justify-center lg:gap-6 2xl:px-[80px] 2xl:gap-[50px]">
-            {renderContactItem({ href: "mailto:support@skillbridge.com", Icon: MailIcon, text: "support@skillbridge.com" })}
-            {renderContactItem({ href: "tel:+910000000000", Icon: PhoneIcon, text: "+91 00000 00000" })}
+            {renderContactItem({ href: `mailto:${skillbridgeEmails.support}`, Icon: MailIcon, text: skillbridgeEmails.support })}
+            {renderContactItem({ href: `tel:${skillbridgePhoneNumbers.support.replaceAll(/\s/g, "")}`, Icon: PhoneIcon, text: skillbridgePhoneNumbers.support })}
             {renderContactItem({
-              href: "https://earth.google.com/web/@54.81903745,56.24340367,-7608.18697546a,22347029.54528332d,35y,39.37498015h,0t,0r/data=OgMKATA",
+              href: skillbridgeGoogleMapsUrl,
               Icon: LocationIcon,
               text: "Somewhere in the World",
             })}
