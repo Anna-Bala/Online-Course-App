@@ -104,9 +104,11 @@ const variantClassNames = {
 
 export default function Typography({ children, color, className = "", href, htmlFor, htmlTag: CustomHTMLTag, variant = "body" }: Props) {
   const HTMLTag = CustomHTMLTag || (variantHTMLTag[variant] as keyof JSX.IntrinsicElements);
+  const isLinkTag = CustomHTMLTag === "a";
+  const linkProps = { target: "_blank" };
 
   return (
-    <HTMLTag className={classNames(`${variantClassNames[variant]} ${colorClassNames[color]} ${className}`)} href={href} htmlFor={htmlFor}>
+    <HTMLTag className={classNames(`${variantClassNames[variant]} ${colorClassNames[color]} ${className}`)} href={href} htmlFor={htmlFor} {...(isLinkTag ? linkProps : {})}>
       {children}
     </HTMLTag>
   );

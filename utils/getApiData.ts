@@ -1,5 +1,5 @@
-import { notFound } from "next/navigation";
 import { getServerSession } from "next-auth";
+import { notFound } from "next/navigation";
 
 import { BASE_API_URL } from "./constants";
 import authOptions from "@/app/lib/auth";

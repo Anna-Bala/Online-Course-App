@@ -1,7 +1,7 @@
 "use client";
 
 import { socialLinks } from "@/app/constants";
-import Typography, { typographyColors, typographyVariants } from "../Typography";
+import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
 import useGetWindowSize from "@/hooks/useGetWindowSize";
 
 export default function SocialProfiles() {

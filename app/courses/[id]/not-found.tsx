@@ -1,7 +1,7 @@
 import LinkButton, { linkButtonVariants } from "@/components/LinkButton";
 import Typography, { typographyColors, typographyVariants } from "@/components/Typography";
 
-export default function CourseDetailsNotFound({ params }: { params: { id: string } }) {
+export default function CourseDetailsNotFound() {
   return (
     <main className="flex min-h-screen flex-col items-center px-4 lg:px-5 2xl:px-[30px]">
       <div className="flex flex-col items-center gap-5 w-full lg:gap-10 2xl:gap-[50px]">

@@ -6,7 +6,7 @@ import classNames from "classnames";
 import Link from "next/link";
 
 import { AvatarIcon, LogoIcon } from "@/icons";
-import LinkButton, { linkButtonVariants } from "./LinkButton";
+import LinkButton, { linkButtonVariants } from "@/components/LinkButton";
 import LogoutButton from "@/components/LogoutButton";
 import useGetWindowSize from "@/hooks/useGetWindowSize";
 
@@ -92,8 +92,8 @@ export default function Navigation({ isActiveSession }: Props) {
                   <LinkButton
                     className={classNames("py-3 2xl:py-[14px] text-center text-nowrap	", { "bg-white-95": pathname === href })}
                     fullWidth={isMobile}
-                    variant={linkButtonVariants.link}
                     href={href}
+                    variant={linkButtonVariants.link}
                   >
                     {name}
                   </LinkButton>
