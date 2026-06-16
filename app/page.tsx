@@ -51,7 +51,7 @@ export default async function Home() {
         </LinkButton>
       </div>
 
-      <Image className="rounded-[10px] w-full h-auto" alt="Video placeholder" src={placeholderImg} />
+      <Image className="rounded-[10px] w-full h-auto" alt="Video placeholder" priority sizes="100vw" src={placeholderImg} />
 
       <HomePageSection
         bigMarginBelow

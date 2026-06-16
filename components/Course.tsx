@@ -18,7 +18,14 @@ export default function Course({ activeSessionUserId, course, shouldGrow = true,
   return (
     <div className={classNames("p-6 bg-absolute-white rounded-[10px]", { "lg:w-5/12 lg:flex-grow": shouldGrow, "lg:w-[calc(50%-10px)]": !shouldGrow })} key={course.id}>
       <div className="h-[172px] lg:h-[266px] relative">
-        <Image fill className="rounded-md" alt={course.title} src={course.images[0]} style={{ objectFit: "cover" }} sizes="(min-width: 1024px) 40vw, 90vw" />
+        <Image
+          fill
+          alt={course.title}
+          className="rounded-md"
+          sizes="(min-width: 1536px) 32vw, (min-width: 1024px) 40vw, 90vw"
+          src={course.images[0]}
+          style={{ objectFit: "cover" }}
+        />
       </div>
       <div className="flex flex-wrap gap-x-[10px] gap-y-[14px] my-6 lg:flex-nowrap lg:items-center">
         <Typography className="rounded-md border border-white-95 py-2 px-[14px]" color={typographyColors.grey30} variant={typographyVariants.body}>

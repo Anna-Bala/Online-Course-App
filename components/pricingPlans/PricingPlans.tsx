@@ -13,7 +13,6 @@ export default function PricingPlans() {
   const [isLoading, setIsLoading] = useState(false);
   const [isMonthly, setIsMonthly] = useState(true);
   const [pricingPlans, setPricingPlans] = useState<PricingPlan[] | []>([]);
-
   const toggleIsMonthly = () => setIsMonthly((prevState) => !prevState);
 
   useEffect(() => {

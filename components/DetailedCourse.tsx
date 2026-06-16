@@ -32,7 +32,14 @@ export default async function DetailedCourse({ course }: Props) {
       <div className="w-full flex gap-[10px] my-6 2xl:my-[30px]">
         {course.images.map((image, index) => (
           <div className="relative w-2/6 h-[100px] lg:h-[325px] 2xl:h-[422px]" key={image}>
-            <Image className="rounded" fill alt={`${course.title}${index}`} src={image} style={{ objectFit: "cover" }} sizes="30vw" />
+            <Image
+              fill
+              alt={`${course.title}${index}`}
+              className="rounded"
+              sizes="(min-width: 1536px) 28vw, (min-width: 1024px) 30vw, 33vw"
+              src={image}
+              style={{ objectFit: "cover" }}
+            />
           </div>
         ))}
       </div>

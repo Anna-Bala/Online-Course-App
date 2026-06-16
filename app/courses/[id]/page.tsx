@@ -21,7 +21,15 @@ export default async function CourseDetails({ params }: Props) {
       <PageHeader title={course.title} titleClassName="lg:mt-[30px] 2xl:mt-[18px]" info={course.intro} />
       <div className="flex flex-col gap-[50px] w-full lg:px-[60px] 2xl:px-[142px] lg:gap-[80px] 2xl:gap-[100px]">
         <div className="w-full h-[250px] relative min-[520px]:h-[350px] min-[720px]:h-[450px] min-[920px]:h-[550px] lg:h-[600px] xl:h-[650px] 2xl:h-[790px]">
-          <Image fill className="rounded-[10px]" alt={course.title} src={course.images[0]} style={{ objectFit: "cover", objectPosition: "center" }} />
+          <Image
+            fill
+            alt={course.title}
+            className="rounded-[10px]"
+            priority
+            sizes="(min-width: 1536px) 1200px, (min-width: 1024px) calc(100vw - 160px), 100vw"
+            src={course.images[0]}
+            style={{ objectFit: "cover", objectPosition: "center" }}
+          />
         </div>
         <div className="flex flex-col gap-5 xl:flex-row xl:flex-wrap 2xl:gap-[30px]">
           {course.sections.map((courseSection, index) => {
