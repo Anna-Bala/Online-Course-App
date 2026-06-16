@@ -81,21 +81,29 @@ export default function LoginOrSignUpPanel({ isSignUp }: Props) {
     if (!isValidationCorrect) return;
 
     const signUpResponse = await fetch("/api/auth/sign-up", {
+      headers: {
+        "Content-Type": "application/json",
+      },
       method: "POST",
       body: JSON.stringify(formDataFormatted),
     });
 
     const signUpResponseBody = await signUpResponse.json();
 
-    if (!!signUpResponseBody?.error) {
+    if (!signUpResponse.ok || !!signUpResponseBody?.error) {
       const isEmailAlreadyInUse = signUpResponseBody?.error.constraint === "unique_email";
 
       if (isEmailAlreadyInUse) setError("The email you have provided is already in use. Please try to login or send us a message through the contact page.");
       else setError("Something went wrong while creating an account, please try again.");
+
+      return;
     }
+
+    router.replace("/login");
   };
 
   const handleLogin = async (event: FormEvent<HTMLFormElement>) => {
+    setError(null);
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const formDataFormatted = formatFormData(formData);
